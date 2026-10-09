@@ -141,3 +141,15 @@ Firebase 무료/유료 구분과 실제 비용은 Functions 실행 수 하나로
 ### 배포 전 점검
 
 로컬 에뮬레이터에서 타입·빌드·계약 테스트, 브라우저 PC/모바일 및 60초 갱신은 검사할 수 있지만, 다중 인스턴스와 10/50/100명 부하, 장시간 모바일 화면 잠금, 실제 과금은 검증되지 않았다. 실제 예상 트래픽으로 지연·429/502/504·캐시 적중률·인스턴스 수를 측정하고 운영 제한을 정해야 한다. 공개 API는 로그인 없이 호출 가능하고 CORS가 서버 간 호출을 막지 못한다. 무조건적인 IP 단위 제한은 학교/공용망 사용자를 함께 막을 수 있으므로, 필요하면 우선 지표에 근거한 전역/노선별 제한과 사용자 영향 및 비용을 검토한다. 서버 Secret은 계속 Functions에서만 읽고, `VITE_` 변수나 브라우저 번들에 포함하지 않는다.
+
+## 5-1단계: 운영 배포 설계 (2026-10-10)
+
+잠정 선택은 기존 Firebase Hosting + 2세대 Cloud Functions다. 운영 `https://bustrker.web.app`의 `/api/**`는 `firebase.json`의 첫 rewrite에 의해 `asia-northeast3`의 `api` Function으로, 정적 SPA는 다음 rewrite에 의해 `dist/index.html`로 전달된다. `localhost:5173`의 Vite 프록시는 로컬에서만 `127.0.0.1:5000` Hosting 에뮬레이터로 보낸다. 운영 브라우저는 기존 상대 `/api`를 유지하므로 별도 교차 출처 CORS 구성이 필요 없다. 직접 Function URL로 들어오는 호출은 CORS 설정과 관계없이 가능할 수 있어 공개 API 보호를 CORS에 의존하지 않는다. 5-1에서는 실제 배포나 Firebase 프로젝트 설정을 변경하지 않았다.
+
+`defineSecret('PUBLIC_DATA_SERVICE_KEY')`로 바인딩한 키만 Functions에서 읽는다. `functions/.secret.local`은 에뮬레이터 전용이며 운영 Secret Manager에 자동 등록되지 않는다. Kakao `VITE_KAKAO_MAP_APP_KEY`는 브라우저에 보이는 JavaScript 키이므로 허용 도메인을 운영 주소까지 확인해야 한다. 서버는 키 누락·인증 실패·429·502·504를 구분하고 원본 GBIS URL/응답과 Secret을 로그 또는 클라이언트 오류에 넣지 않는다. HTTP API에는 `Cache-Control: no-store`를 설정한다. 이 헤더는 서버의 메모리 TTL과 다른 계층이다. `queriedAt`은 서버 조회 시각이며 차량 GPS 시각이 아니다.
+
+현재 캐시는 300개 항목의 **프로세스 메모리**이고 인스턴스 간 공유되지 않는다. Functions/Workers 요청 수는 캐시 적중에서도 1회씩 발생한다. 캐시는 GBIS 호출과 대기시간을 줄일 뿐 서버 실행 요청량을 없애지 않는다. 20초 차량 TTL과 클라이언트의 노선당 60초 주기에서 같은 노선을 여러 사용자가 비슷한 시각에 조회할수록 절감이 크다. 인스턴스가 늘거나 재시작하면 절감이 줄고 GBIS 호출량이 늘 수 있다. 현재 전역 요청 제한, 인스턴스 상한, 운영 집계 엔드포인트는 없으며 `/api/_metrics`는 에뮬레이터에서만 열린다. GBIS 승인 한도를 확인하고 모의 부하 시험을 한 뒤 노선별·전역 요청 예산, 서버 인스턴스 수와 관측 방식을 정해야 한다.
+
+브라우저는 지도 이동/검색을 디바운스하고 탭 비활성·오프라인·숨긴 노선에서 차량 폴링을 중단한다. 서버는 동일 키 진행 중 요청을 합치고 GBIS 호출을 8초 뒤 중단하며 GBIS 429 뒤 해당 프로세스에서 30초 억제한다. 이것은 다중 인스턴스 전역 제한이 아니다. 공개 API의 입력 검증과 서버 키 격리는 유지하되, IP·Origin 단독 제한으로 남용을 모두 막을 수는 없다. 실제 운영 지표에서 요청 폭주와 GBIS 429를 구분한 뒤 다중 인스턴스에도 유효한 정책을 추가한다. 정상적인 빈 차량 목록과 오류를 구분하고 실패 또는 2분 초과 데이터를 현재 운행 구간으로 표시하지 않는다.
+
+Cloudflare 대안으로 이관할 경우 기존 Firebase Hosting의 Function rewrite를 외부 Worker 프록시로 간주할 수 없다. Firebase Hosting 유지형은 별도 Worker API 주소, 프런트 API base URL, CORS 및 별도 Secret이 필요하다. 전면 이관형은 Workers Static Assets에서 `/api/*`를 Worker에 보내고 같은 출처 SPA를 제공할 수 있지만 서버 진입점과 캐시/계측을 이관·검증해야 한다. 이 단계에서는 어느 쪽도 구현하지 않았다. 요금·호출량 계산·공식 출처·장애 대응·5-2단계 체크리스트는 [deployment-plan.md](deployment-plan.md)를 참고한다.

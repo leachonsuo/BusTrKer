@@ -1,4 +1,4 @@
-# BusTracker — 4-2단계 성능·안정성 개선
+# BusTracker — 5-1단계 배포 준비
 
 고양시에서 시작하는 카카오 지도 기반 버스 앱입니다. 주변 정류장, 도착정보, 노선 검색·실제 노선형상·경유 정류장에 더해 GBIS 운행 차량 목록과 확인된 정류장 간 운행 구간을 표시합니다. **GBIS에는 GPS 좌표가 없으므로 강조선은 실제 차량의 한 점 위치가 아닙니다.** 초정밀 GPS의 신선도와 시간대가 검증되지 않아 GPS 마커에 사용하지 않습니다.
 
@@ -103,3 +103,9 @@ node scripts/bench-api.cjs
 `qa-api-security.cjs`와 `bench-api.cjs`는 로컬 Hosting/Functions 에뮬레이터가 실행 중일 때 사용합니다. 후자는 동일 차량 API 요청 10건의 집계와 `/api/_metrics`의 **한 에뮬레이터 프로세스** 차이를 보여 주며 전체 인스턴스 호출 수로 해석할 수 없습니다. `/api/_metrics`는 에뮬레이터에만 존재합니다. 지도 객체·처리시간 집계는 개발 빌드의 `window.__BUS_TRACKER_MAP_METRICS__`에서 볼 수 있습니다. 둘 다 키, 차량번호 목록, GBIS 원본 응답을 기록하지 않습니다.
 
 배포 전에는 실제 예상 트래픽으로 다중 인스턴스 부하 테스트를 하고, 공공데이터포털의 승인 서비스·호출 한도와 Firebase 요금제/리전을 확인해야 합니다. 공개 API에 인증은 없으므로 운영 지표로 비정상 트래픽을 판단한 뒤 공용 IP 이용자를 고려한 제한 방식을 선택하세요. 이번 단계에서는 결제 설정 변경·클라우드 배포를 수행하지 않았습니다.
+
+## 5-1단계 배포 준비 상태
+
+2026-10-10 기준 현재 `firebase.json`은 Hosting의 `/api/**`를 서울 `asia-northeast3`의 Node.js 22 `api` Function으로 전달하고, 나머지 경로는 React 앱으로 보냅니다. 개발 서버의 Vite `/api` 프록시는 로컬 에뮬레이터용입니다. 5-1단계의 잠정 배포 방식은 **기존 Firebase Hosting + Functions 유지**입니다. 실제 배포, 요금제 변경, 운영 Secret 등록은 하지 않았습니다. Firebase Functions 배포에는 Blaze 결제 계정이 필요하므로 프로젝트의 현재 요금제와 비용 책임자 승인이 먼저 필요합니다. Blaze 무료 사용량은 무과금을 보장하지 않습니다.
+
+사용자 수와 이용 시간별 호출량, GBIS 승인 한도 확인 항목, Firebase/Cloudflare 비교, 비용 근거, 보안·장애 대응, 5-2단계 실행 체크리스트는 [배포 계획](docs/deployment-plan.md)에 정리했습니다. 배포 전에는 운영 `PUBLIC_DATA_SERVICE_KEY`를 Firebase Secret Manager에 **개발용과 별도로** 등록하고, Kakao JavaScript SDK의 운영 도메인을 허용하며, 공공데이터포털에서 현재 키의 서비스별 승인 및 실제 호출 한도를 확인해야 합니다. 서버 키를 `VITE_` 변수나 브라우저 번들에 넣지 않습니다. 사용자 승인 전 배포 명령을 실행하지 않습니다.
