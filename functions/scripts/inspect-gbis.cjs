@@ -23,7 +23,7 @@ if (!serviceKey) {
       const envelope = isRecord(parsed?.response) ? parsed.response : parsed
       const header = envelope?.msgHeader || envelope?.header
       const body = envelope?.msgBody || envelope?.body
-      const list = body?.busStationAroundList ?? body?.busStationList ?? body?.busArrivalList
+      const list = body?.busStationAroundList ?? body?.busStationList ?? body?.busArrivalList ?? body?.busRouteList ?? body?.busRouteLineList ?? body?.busRouteStationList ?? body?.busRouteInfoItem ?? body?.busLocationList
       const gateway = parsed?.OpenAPI_ServiceResponse
       const gatewayHeader = gateway?.cmmMsgHeader ?? gateway?.comMsgHeader
       const message = String(header?.resultMsg ?? header?.resultMessage ?? '')
@@ -51,6 +51,37 @@ if (!serviceKey) {
     if (first?.stationId) await inspect('getBusArrivalListv2', '/busarrivalservice/v2/getBusArrivalListv2', { stationId: String(first.stationId) }, serviceKey)
     await inspect('getBusStationAroundListv2-no-data', '/busstationservice/v2/getBusStationAroundListv2', { x: '0', y: '0' }, serviceKey)
     await inspect('getBusStationAroundListv2-invalid-key', '/busstationservice/v2/getBusStationAroundListv2', { x: '126.8320', y: '37.6584' }, 'invalid-key')
+    const routes = await inspect('getBusRouteListv2', '/busrouteservice/v2/getBusRouteListv2', { keyword: '11' }, serviceKey)
+    const routeList = routes?.response?.msgBody?.busRouteList
+    const routeRows = Array.isArray(routeList) ? routeList : routeList ? [routeList] : []
+    const route = routeRows.find((item) => String(item.regionName ?? '').includes('고양')) ?? routeRows[0]
+    if (route?.routeId) {
+      const routeId = String(route.routeId)
+      await inspect('getBusRouteInfoItemv2', '/busrouteservice/v2/getBusRouteInfoItemv2', { routeId }, serviceKey)
+      const lineResponse = await inspect('getBusRouteLineListv2', '/busrouteservice/v2/getBusRouteLineListv2', { routeId }, serviceKey)
+      const stationResponse = await inspect('getBusRouteStationListv2', '/busrouteservice/v2/getBusRouteStationListv2', { routeId }, serviceKey)
+      const line = lineResponse?.response?.msgBody?.busRouteLineList
+      const stations = stationResponse?.response?.msgBody?.busRouteStationList
+      if (Array.isArray(line) && Array.isArray(stations)) {
+        const seqs = line.map((item) => Number(item.lineSeq))
+        const stationSeqs = stations.map((item) => Number(item.stationSeq))
+        const orderedLine = [...line].sort((a, b) => Number(a.lineSeq) - Number(b.lineSeq))
+        const orderedStations = [...stations].sort((a, b) => Number(a.stationSeq) - Number(b.stationSeq))
+        const distanceMeters = (a, b) => {
+          const latitude = (Number(a.y) + Number(b.y)) / 2 * Math.PI / 180
+          return Math.round(Math.hypot((Number(a.x) - Number(b.x)) * Math.cos(latitude) * 111320, (Number(a.y) - Number(b.y)) * 111320))
+        }
+        process.stdout.write(JSON.stringify({ api: 'route-geometry-check', pointCount: line.length,
+          invalidCoordinates: line.filter((item) => !Number.isFinite(Number(item.x)) || !Number.isFinite(Number(item.y)) || Math.abs(Number(item.x)) > 180 || Math.abs(Number(item.y)) > 90).length,
+          duplicateLineSeq: seqs.length - new Set(seqs).size,
+          lineSeqAscending: seqs.every((value, index) => index === 0 || value >= seqs[index - 1]),
+          stationSeqAscending: stationSeqs.every((value, index) => index === 0 || value >= stationSeqs[index - 1]),
+          turnYnValues: [...new Set(stations.map((item) => String(item.turnYn)))].filter((value) => /^[A-Z]{1,4}$/.test(value)),
+          firstPointToFirstStopMeters: distanceMeters(orderedLine[0], orderedStations[0]),
+          lastPointToLastStopMeters: distanceMeters(orderedLine[orderedLine.length - 1], orderedStations[orderedStations.length - 1]),
+        }) + '\n')
+      }
+    }
   }
   main().catch(() => { process.stdout.write('inspection-failed\n'); process.exitCode = 1 })
 }

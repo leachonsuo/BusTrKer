@@ -1,8 +1,17 @@
-import type { Coordinates, NearbyStopsResult, Stop, StopArrival, StopArrivalsResult, TransitId, TransitProvider } from './domain'
+import type { Coordinates, NearbyStopsResult, Route, RouteDetailResult, RouteSearchResult, RouteShapeResult, RouteStop, RouteStopsResult, Stop, StopArrival, StopArrivalsResult, TransitId, TransitProvider, VehiclePosition, VehiclePositionsResult } from './domain'
 import { cached } from './cache'
+import { recordMetric } from './metrics'
 
 const GBIS_BASE = 'https://apis.data.go.kr/6410000'
 const REGION = 'gyeonggi'
+let rateLimitedUntil = 0
+
+function rateLimitError(): TransitApiError {
+  rateLimitedUntil = Date.now() + 30_000
+  return new TransitApiError(429, 'UPSTREAM_RATE_LIMITED', '공공데이터 API 호출 한도에 도달했습니다. 잠시 후 다시 조회해 주세요.')
+}
+
+export function resetGbisCooldownForTests(): void { rateLimitedUntil = 0 }
 
 export class TransitApiError extends Error {
   constructor(public readonly status: number, public readonly code: string, message: string, public readonly stage?: string) {
@@ -145,6 +154,9 @@ function gatewayError(raw: unknown): TransitApiError | null {
   if (!header) return null
   const code = text(header.returnReasonCode)
   const kind = text(header.errMsg)
+  if (code === '22' || code === '23' || kind?.startsWith('LIMITED_NUMBER_OF_SERVICE_REQUESTS')) {
+    return new TransitApiError(429, 'UPSTREAM_RATE_LIMITED', '공공데이터 API 호출 한도에 도달했습니다. 잠시 후 다시 조회해 주세요.')
+  }
   if (code === '20' || code === '30' || code === '31' || kind === 'SERVICE_KEY_IS_NULL' || kind === 'SERVICE_ACCESS_DENIED_ERROR') {
     return new TransitApiError(502, 'UPSTREAM_AUTH_ERROR', `공공데이터 API 인증이 실패했습니다 (결과코드 ${code ?? '없음'}).`)
   }
@@ -152,8 +164,12 @@ function gatewayError(raw: unknown): TransitApiError | null {
 }
 
 async function requestGbis(api: string, path: string, params: Record<string, string>, serviceKey: string): Promise<GbisReply> {
+  // A distinct request after a 429 should not immediately hit the same key's quota again.
+  if (Date.now() < rateLimitedUntil) throw new TransitApiError(429, 'UPSTREAM_RATE_LIMITED', '공공데이터 API 호출 한도에 도달했습니다. 잠시 후 다시 조회해 주세요.')
   const url = new URL(`${GBIS_BASE}${path}`)
   url.search = new URLSearchParams({ format: 'json', serviceKey, ...params }).toString()
+  const started = performance.now()
+  try {
   let response: Response
   try {
     response = await fetch(url, { signal: AbortSignal.timeout(8000), headers: { accept: 'application/json' } })
@@ -170,14 +186,25 @@ async function requestGbis(api: string, path: string, params: Record<string, str
     raw = await response.json() as unknown
   } catch {
     diagnostic(api, response.status, contentType, null, 'json-parse')
+    if (response.status === 429) throw rateLimitError()
     if (!response.ok) throw new TransitApiError(502, 'UPSTREAM_HTTP_ERROR', `GBIS HTTP 오류 (${response.status}).`)
     throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS가 JSON 응답을 반환하지 않았습니다.')
   }
   const upstreamError = gatewayError(raw)
   diagnostic(api, response.status, contentType, raw, upstreamError ? 'gateway-error' : !response.ok ? 'http-status' : undefined)
-  if (upstreamError) throw upstreamError
+  if (upstreamError) {
+    if (upstreamError.status === 429) throw rateLimitError()
+    throw upstreamError
+  }
+  if (response.status === 429) throw rateLimitError()
   if (!response.ok) throw new TransitApiError(502, 'UPSTREAM_HTTP_ERROR', `GBIS HTTP 오류 (${response.status}).`)
   return { raw, status: response.status, contentType }
+  } catch (error) {
+    recordMetric('upstreamError', api)
+    throw error
+  } finally {
+    recordMetric('upstream', api, performance.now() - started)
+  }
 }
 
 export async function nearbyGbis(position: Coordinates, serviceKey: string): Promise<NearbyStopsResult> {
@@ -208,10 +235,185 @@ export async function arrivalsGbis(stationId: string, serviceKey: string): Promi
   })
 }
 
+function routeFromItem(item: Record<string, unknown>): Route {
+  const routeId = text(item.routeId)
+  const name = text(item.routeName)
+  const startStopId = text(item.startStationId)
+  const endStopId = text(item.endStationId)
+  if (!routeId || !/^\d+$/.test(routeId) || !name ||
+      (startStopId !== null && !/^\d+$/.test(startStopId)) || (endStopId !== null && !/^\d+$/.test(endStopId))) {
+    throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 노선 필수 항목이 올바르지 않습니다.', 'route-fields')
+  }
+  return { id: id(routeId), name, startName: text(item.startStationName), endName: text(item.endStationName),
+    typeName: text(item.routeTypeName), regionName: text(item.regionName),
+    startStopId: startStopId ? id(startStopId) : null,
+    endStopId: endStopId ? id(endStopId) : null }
+}
+
+function routeStopFromItem(item: Record<string, unknown>): RouteStop {
+  const stationId = text(item.stationId)
+  const name = text(item.stationName)
+  const longitude = finite(item.x)
+  const latitude = finite(item.y)
+  const sequence = nonnegative(item.stationSeq)
+  const turn = item.turnYn === 'Y' ? true : item.turnYn === 'N' ? false : null
+  if (!stationId || !/^\d+$/.test(stationId) || !name || longitude === null || latitude === null ||
+      Math.abs(latitude) > 90 || Math.abs(longitude) > 180 || sequence === null || sequence === 0 ||
+      (item.turnYn != null && turn === null)) {
+    throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 경유 정류장 항목이 올바르지 않습니다.', 'route-stop-fields')
+  }
+  return { id: id(stationId), name, position: { latitude, longitude }, mobileNo: text(item.mobileNo),
+    distanceMeters: null, sequence, turnYn: turn, turnSequence: nonnegative(item.turnSeq) }
+}
+
+export function parseRouteSearch(raw: unknown): Route[] {
+  const routes = payload(raw, 'busRouteList').map(routeFromItem)
+  const seen = new Set<string>()
+  return routes.filter((route) => {
+    if (seen.has(route.id.value)) return false
+    seen.add(route.id.value)
+    return true
+  })
+}
+
+export function parseRouteDetail(raw: unknown, routeId: string): Route | null {
+  const list = payload(raw, 'busRouteInfoItem')
+  if (list.length === 0) return null
+  if (list.length !== 1) throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 노선 상세정보 개수가 올바르지 않습니다.', 'route-detail-count')
+  const route = routeFromItem(list[0])
+  if (route.id.value !== routeId) throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 노선 ID가 요청과 다릅니다.', 'route-detail-id')
+  return route
+}
+
+export function parseRouteShape(raw: unknown, routeId: string): RouteShapeResult['shape'] {
+  const list = payload(raw, 'busRouteLineList')
+  if (list.length === 0) return null
+  const seen = new Set<number>()
+  const ordered = list.map((item) => {
+    const sequence = nonnegative(item.lineSeq)
+    const longitude = finite(item.x)
+    const latitude = finite(item.y)
+    if (sequence === null || sequence === 0 || seen.has(sequence) || longitude === null || latitude === null ||
+        Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
+      throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 노선형상 좌표가 올바르지 않습니다.', 'route-line-fields')
+    }
+    seen.add(sequence)
+    return { sequence, position: { latitude, longitude } }
+  }).sort((a, b) => a.sequence - b.sequence)
+  const points = ordered.map((item) => item.position).filter((point, index, all) =>
+    index === 0 || point.latitude !== all[index - 1].latitude || point.longitude !== all[index - 1].longitude)
+  return points.length >= 2 ? { routeId: id(routeId), points } : null
+}
+
+export function parseRouteStops(raw: unknown): RouteStop[] {
+  const list = payload(raw, 'busRouteStationList')
+  const seen = new Set<number>()
+  return list.map((item) => {
+    const stop = routeStopFromItem(item)
+    if (seen.has(stop.sequence)) throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 경유 정류장 순서가 중복되었습니다.', 'route-stop-sequence')
+    seen.add(stop.sequence)
+    return stop
+  }).sort((a, b) => a.sequence - b.sequence)
+}
+
+export function parseVehiclePositions(raw: unknown, routeId: string, routeStops: RouteStop[]): VehiclePosition[] {
+  const list = payload(raw, 'busLocationList')
+  const bySequence = new Map(routeStops.map((stop) => [stop.sequence, stop]))
+  const seen = new Set<string>()
+  return list.map((item) => {
+    const vehicleId = text(item.vehId)
+    const responseRouteId = text(item.routeId)
+    const stationId = text(item.stationId)
+    const stationSequence = nonnegative(item.stationSeq)
+    const stateCode = nonnegative(item.stateCd)
+    if (!vehicleId || !/^\d+$/.test(vehicleId) || responseRouteId !== routeId ||
+        !stationId || !/^\d+$/.test(stationId) || !stationSequence ||
+        (stateCode !== 0 && stateCode !== 1 && stateCode !== 2)) {
+      throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS 차량 위치 필드가 올바르지 않습니다.', 'vehicle-fields')
+    }
+    const current = bySequence.get(stationSequence)
+    const next = bySequence.get(stationSequence + 1)
+    // A valid vehicle remains in the list if GBIS and route-stop revisions disagree,
+    // but its section is never drawn in that case.
+    const matched = current?.id.value === stationId
+    return {
+      kind: 'stop-progress' as const, routeId: id(routeId), vehicleId, stationSequence,
+      stateCode: stateCode as 0 | 1 | 2, currentStopId: id(stationId),
+      nextStopId: matched && stateCode === 2 && current?.turnYn !== true && next ? next.id : null,
+      sectionVerified: Boolean(matched && stateCode === 2 && current?.turnYn !== true && next), observedAt: null,
+    }
+  }).filter((vehicle) => {
+    if (seen.has(vehicle.vehicleId)) return false
+    seen.add(vehicle.vehicleId)
+    return true
+  })
+}
+
+async function requestAndParse<T>(api: string, path: string, params: Record<string, string>, serviceKey: string, parse: (raw: unknown) => T): Promise<T> {
+  const reply = await requestGbis(api, path, params, serviceKey)
+  try { return parse(reply.raw) } catch (error) {
+    diagnostic(api, reply.status, reply.contentType, reply.raw, error instanceof TransitApiError ? error.stage ?? error.code : 'parse')
+    throw error
+  }
+}
+
+export async function searchGbisRoutes(query: string, serviceKey: string): Promise<RouteSearchResult> {
+  const normalized = query.trim()
+  return cached(`gbis:route-search:${normalized}`, 300_000, async () => ({
+    routes: await requestAndParse('getBusRouteListv2', '/busrouteservice/v2/getBusRouteListv2', { keyword: normalized }, serviceKey, parseRouteSearch),
+    queriedAt: new Date().toISOString(), source: 'gbis' as const,
+  }))
+}
+
+export async function detailGbisRoute(routeId: string, serviceKey: string): Promise<RouteDetailResult> {
+  return cached(`gbis:route-detail:${routeId}`, 1_800_000, async () => ({
+    route: await requestAndParse('getBusRouteInfoItemv2', '/busrouteservice/v2/getBusRouteInfoItemv2', { routeId }, serviceKey, (raw) => parseRouteDetail(raw, routeId)),
+    queriedAt: new Date().toISOString(), source: 'gbis' as const,
+  }))
+}
+
+export async function shapeGbisRoute(routeId: string, serviceKey: string): Promise<RouteShapeResult> {
+  return cached(`gbis:route-shape:${routeId}`, 3_600_000, async () => ({
+    shape: await requestAndParse('getBusRouteLineListv2', '/busrouteservice/v2/getBusRouteLineListv2', { routeId }, serviceKey, (raw) => parseRouteShape(raw, routeId)),
+    queriedAt: new Date().toISOString(), source: 'gbis' as const,
+  }))
+}
+
+export async function stopsGbisRoute(routeId: string, serviceKey: string): Promise<RouteStopsResult> {
+  return cached(`gbis:route-stops:${routeId}`, 1_800_000, async () => ({
+    routeId: id(routeId),
+    stops: await requestAndParse('getBusRouteStationListv2', '/busrouteservice/v2/getBusRouteStationListv2', { routeId }, serviceKey, parseRouteStops),
+    queriedAt: new Date().toISOString(), source: 'gbis' as const,
+  }))
+}
+
+export async function vehiclesGbisRoute(routeId: string, serviceKey: string): Promise<VehiclePositionsResult> {
+  return cached(`gbis:vehicles:${routeId}`, 20_000, async () => {
+    const api = 'getBusLocationListv2'
+    const reply = await requestGbis(api, '/buslocationservice/v2/getBusLocationListv2', { routeId }, serviceKey)
+    try {
+      if (payload(reply.raw, 'busLocationList').length === 0) {
+        return { routeId: id(routeId), vehicles: [], queriedAt: new Date().toISOString(), source: 'gbis' as const }
+      }
+      const routeStops = await stopsGbisRoute(routeId, serviceKey)
+      return { routeId: id(routeId), vehicles: parseVehiclePositions(reply.raw, routeId, routeStops.stops),
+        queriedAt: new Date().toISOString(), source: 'gbis' as const }
+    } catch (error) {
+      diagnostic(api, reply.status, reply.contentType, reply.raw, error instanceof TransitApiError ? error.stage ?? error.code : 'parse')
+      throw error
+    }
+  })
+}
+
 export function gbisStopProvider(serviceKey: string): TransitProvider {
   return {
     id: 'gbis',
     supportedRegions: [REGION],
+    searchRoutes: (query) => searchGbisRoutes(query, serviceKey),
+    routeDetail: (routeId) => { assertGbisRouteId(routeId); return detailGbisRoute(routeId.value, serviceKey) },
+    routeShape: (routeId) => { assertGbisRouteId(routeId); return shapeGbisRoute(routeId.value, serviceKey) },
+    routeStops: (routeId) => { assertGbisRouteId(routeId); return stopsGbisRoute(routeId.value, serviceKey) },
+    vehiclePositions: (routeId) => { assertGbisRouteId(routeId); return vehiclesGbisRoute(routeId.value, serviceKey) },
     nearbyStops: (position) => nearbyGbis(position, serviceKey),
     arrivals: (stopId) => {
       if (stopId.provider !== 'gbis' || stopId.regionCode !== REGION) {
@@ -219,5 +421,11 @@ export function gbisStopProvider(serviceKey: string): TransitProvider {
       }
       return arrivalsGbis(stopId.value, serviceKey)
     },
+  }
+}
+
+function assertGbisRouteId(routeId: TransitId): void {
+  if (routeId.provider !== 'gbis' || routeId.regionCode !== REGION || !/^\d{1,20}$/.test(routeId.value)) {
+    throw new TransitApiError(400, 'PROVIDER_ID_MISMATCH', 'GBIS 노선 ID가 필요합니다.')
   }
 }

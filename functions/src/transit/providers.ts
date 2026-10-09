@@ -1,6 +1,6 @@
 import type { ProviderId } from './domain'
 
-// Capability catalog. Only GBIS stops and arrivals are wired in stage 2.
+// Capability catalog; only GBIS is wired. Precision/TAGO entries describe documented, inactive capabilities.
 export const providerCatalog: Record<ProviderId, { documentation: string; capabilities: readonly string[] }> = {
   gbis: {
     documentation: 'https://www.gbis.go.kr/gbis2014/publicService.action?cmd=openApiInfo',

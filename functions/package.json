@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "test": "npm run build && node --test test/gbis.test.cjs"
+    "test": "npm run build && node --test"
   },
   "dependencies": {
     "firebase-functions": "^7.0.0"

@@ -14,24 +14,38 @@ interface KakaoMap {
   getCenter(): KakaoLatLng
   getLevel(): number
   relayout(): void
+  setBounds(bounds: KakaoLatLngBounds, paddingTop?: number, paddingRight?: number, paddingBottom?: number, paddingLeft?: number): void
+  getProjection(): KakaoProjection
 }
+
+interface KakaoProjection { containerPointFromCoords(position: KakaoLatLng): { x: number; y: number } }
+interface KakaoLatLngBounds { extend(position: KakaoLatLng): void }
 
 interface KakaoMarker {
   setMap(map: KakaoMap | null): void
 }
 
 interface KakaoMarkerImage {}
+interface KakaoPolyline {
+  setMap(map: KakaoMap | null): void
+  setOptions(options: { strokeWeight?: number; strokeColor?: string; strokeOpacity?: number; strokeStyle?: string }): void
+  setZIndex(zIndex: number): void
+}
+interface KakaoCustomOverlay { setMap(map: KakaoMap | null): void }
 
 interface KakaoMapsApi {
   load(callback: () => void): void
   LatLng: new (latitude: number, longitude: number) => KakaoLatLng
   Size: new (width: number, height: number) => object
   Map: new (element: HTMLElement, options: { center: KakaoLatLng; level: number }) => KakaoMap
+  LatLngBounds: new () => KakaoLatLngBounds
+  Polyline: new (options: { map: KakaoMap; path: KakaoLatLng[]; strokeWeight: number; strokeColor: string; strokeOpacity?: number; strokeStyle?: string }) => KakaoPolyline
+  CustomOverlay: new (options: { map: KakaoMap; position: KakaoLatLng; content: HTMLElement; xAnchor?: number; yAnchor?: number; zIndex?: number }) => KakaoCustomOverlay
   MarkerImage: new (src: string, size: object) => KakaoMarkerImage
   Marker: new (options: { position: KakaoLatLng; map: KakaoMap; image?: KakaoMarkerImage }) => KakaoMarker
   event: {
-    addListener(target: KakaoMap | KakaoMarker, type: string, handler: () => void): void
-    removeListener(target: KakaoMap | KakaoMarker, type: string, handler: () => void): void
+    addListener(target: KakaoMap | KakaoMarker | KakaoPolyline, type: string, handler: () => void): void
+    removeListener(target: KakaoMap | KakaoMarker | KakaoPolyline, type: string, handler: () => void): void
   }
 }
 
@@ -68,4 +82,4 @@ export function loadKakaoMaps(appKey: string): Promise<KakaoMapsApi> {
   return loading
 }
 
-export type { KakaoMap, KakaoMarker, KakaoMapsApi }
+export type { KakaoMap, KakaoMarker, KakaoMapsApi, KakaoPolyline, KakaoCustomOverlay }
