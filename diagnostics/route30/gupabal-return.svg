@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="740" viewBox="0 0 1040 740">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#1557bd" stroke-width="1.5"/></marker></defs>
+<text x="32" y="36" font-size="20" font-family="sans-serif" font-weight="700" fill="#18325a">route 229000010 · shape 1480–1555</text>
+<text x="32" y="62" font-size="13" font-family="sans-serif" fill="#52637a">Blue: ordered shape and arrows · red: actual GBIS stop positions / visit sequences · no basemap</text>
+<path d="M438.14 650.00 L432.72 623.45 L431.45 614.19 L429.70 589.65 L429.06 580.60 L427.94 578.38 L428.42 575.97 L427.94 570.13 L426.99 565.31 L424.92 559.27 L422.21 553.44 L418.86 548.01 L411.06 537.95 L403.09 528.29 L399.59 523.06 L397.52 518.43 L395.60 512.80 L394.81 508.58 L394.33 500.33 L393.37 498.11 L394.01 496.10 L391.46 444.20 L390.83 442.39 L391.30 440.38 L389.55 414.83 L388.75 408.79 L387.96 407.18 L389.55 407.59 L416.79 406.38 L418.70 405.78 L418.23 407.59 L419.34 424.48 L419.82 426.30 L419.02 428.11 L417.43 430.12 L416.63 432.53 L416.63 435.75 L417.11 448.83 L417.75 451.04 L419.82 454.46 L420.78 457.88 L421.41 465.12 L422.05 466.93 L421.73 468.54 L422.85 494.69 L423.48 496.30 L422.05 495.90 L395.29 497.51 L393.37 498.11 L394.01 496.10 L391.46 444.20 L390.83 442.39 L391.30 440.38 L391.14 439.37 L389.55 414.83 L388.75 408.79 L387.96 407.18 L387.96 405.37 L387.00 400.95 L382.70 386.46 L368.84 346.23 L367.09 340.60 L365.18 336.57 L362.79 332.35 L360.24 328.53 L359.60 327.72 L356.57 324.50 L354.82 323.70 L353.87 322.09 L348.61 318.06 L279.15 277.83 L255.41 263.95 L243.63 257.11 L234.39 252.08 L227.22 249.06 L221.00 246.85" fill="none" stroke="#2f6edf" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M429.7 589.6 L429.1 580.6" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M418.9 548.0 L411.1 537.9" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M389.6 407.6 L416.8 406.4" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M421.7 468.5 L422.8 494.7" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M382.7 386.5 L368.8 346.2" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="438.1" cy="650.0" r="3" fill="#1557bd"/>
+<text x="443.1" y="645.0" font-size="11" font-family="sans-serif" fill="#1557bd">1480</text>
+<circle cx="411.1" cy="537.9" r="3" fill="#1557bd"/>
+<text x="416.1" y="532.9" font-size="11" font-family="sans-serif" fill="#1557bd">1492</text>
+<circle cx="389.6" cy="414.8" r="3" fill="#1557bd"/>
+<text x="394.6" y="409.8" font-size="11" font-family="sans-serif" fill="#1557bd">1504</text>
+<circle cx="416.6" cy="435.8" r="3" fill="#1557bd"/>
+<text x="421.6" y="430.8" font-size="11" font-family="sans-serif" fill="#1557bd">1516</text>
+<circle cx="393.4" cy="498.1" r="3" fill="#1557bd"/>
+<text x="398.4" y="493.1" font-size="11" font-family="sans-serif" fill="#1557bd">1528</text>
+<circle cx="368.8" cy="346.2" r="3" fill="#1557bd"/>
+<text x="373.8" y="341.2" font-size="11" font-family="sans-serif" fill="#1557bd">1540</text>
+<circle cx="243.6" cy="257.1" r="3" fill="#1557bd"/>
+<text x="248.6" y="252.1" font-size="11" font-family="sans-serif" fill="#1557bd">1552</text>
+<circle cx="429.3" cy="590.3" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="438.3" y="595.3" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">129 박석고개.신도고등학교(중)</text>
+<circle cx="416.0" cy="449.1" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="425.0" y="454.1" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">130 구파발역.롯데몰(고양.파주)</text>
+<circle cx="392.4" cy="440.0" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="401.4" y="445.0" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">131 구파발역(경유)</text>
+<circle cx="359.0" cy="328.1" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="368.0" y="333.1" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">132 은평뉴타운10단지(중)</text>
+<circle cx="90.0" cy="90.0" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="99.0" y="95.0" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">133 삼송역사거리.지축차량기지입구</text>
+</svg>

@@ -22,8 +22,21 @@
   },
   "functions": {
     "source": "functions",
+    "ignore": [
+      ".git",
+      ".runtimeconfig.json",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "node_modules",
+      ".secret.local",
+      ".env.local",
+      ".budget.local.json*"
+    ],
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run build"
     ]
+  },
+  "emulators": {
+    "firestore": { "host": "127.0.0.1", "port": 18080 }
   }
 }

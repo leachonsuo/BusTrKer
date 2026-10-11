@@ -77,6 +77,28 @@ test('rapid manual refresh coalesces with an in-flight request and respects rece
   controller.setRoutes([])
 })
 
+test('detail rerenders do not restart polling; the automatic second request starts at 60 seconds', async () => {
+  const clock = fakeClock()
+  const calls = []
+  const updates = []
+  const controller = new VehiclePollingController((_id, signal) => new Promise((resolve) => calls.push({ signal, resolve })),
+    (_key, event) => updates.push(event), clock.now, clock.setTimer, clock.clearTimer, () => 0)
+  controller.setRoutes([route('11')])
+  clock.advance(0)
+  calls[0].resolve(data('11'))
+  await flush()
+  controller.setRoutes([route('11')]) // Detail/shape/stop updates can recreate route objects.
+  clock.advance(59_999)
+  assert.equal(calls.length, 1)
+  clock.advance(1)
+  assert.equal(calls.length, 2)
+  assert.deepEqual(updates.filter((event) => event?.status === 'loading').map((event) => event.trigger),
+    ['route_added', 'automatic_60s'])
+  calls[1].resolve(data('11'))
+  await flush()
+  controller.setRoutes([])
+})
+
 test('hidden tabs stop timers and late removed-route responses are ignored', async () => {
   const clock = fakeClock()
   const calls = []
@@ -96,6 +118,50 @@ test('hidden tabs stop timers and late removed-route responses are ignored', asy
   await flush()
   assert.equal(updates.at(-1)[1], null)
   assert.equal(clock.pending(), 0)
+})
+
+test('cleanup and an old completion cannot erase a newly selected route snapshot', async () => {
+  const clock = fakeClock()
+  const calls = []
+  const updates = []
+  const controller = new VehiclePollingController((id, signal) => new Promise((resolve) => calls.push({ id: id.value, signal, resolve })),
+    (_key, event) => updates.push(event), clock.now, clock.setTimer, clock.clearTimer, () => 0)
+  controller.setRoutes([route('11')])
+  clock.advance(0)
+  controller.setRoutes([]) // React effect cleanup or route removal.
+  assert.equal(calls[0].signal.aborted, true)
+  controller.setRoutes([route('11')])
+  clock.advance(0)
+  assert.equal(calls.length, 2)
+  calls[1].resolve({ ...data('11'), queriedAt: '2026-10-10T11:00:00.000Z' })
+  await flush()
+  assert.equal(updates.at(-1).data.queriedAt, '2026-10-10T11:00:00.000Z')
+  calls[0].resolve({ ...data('11'), queriedAt: '2026-10-10T10:00:00.000Z' })
+  await flush()
+  assert.equal(updates.at(-1).data.queriedAt, '2026-10-10T11:00:00.000Z')
+  controller.setRoutes([])
+})
+
+test('aborted request completion cannot clear the replacement request controller', async () => {
+  const clock = fakeClock()
+  const calls = []
+  const updates = []
+  const controller = new VehiclePollingController((_id, signal) => new Promise((resolve) => calls.push({ signal, resolve })),
+    (_key, event) => updates.push(event), clock.now, clock.setTimer, clock.clearTimer, () => 0)
+  controller.setRoutes([route('11')])
+  clock.advance(0)
+  controller.setVisible(false)
+  assert.equal(calls[0].signal.aborted, true)
+  controller.setVisible(true)
+  clock.advance(0)
+  assert.equal(calls.length, 2)
+  calls[0].resolve({ ...data('11'), queriedAt: '2026-10-10T10:00:00.000Z' })
+  await flush()
+  assert.equal(controller.refresh().busy, 1)
+  calls[1].resolve({ ...data('11'), queriedAt: '2026-10-10T11:00:00.000Z' })
+  await flush()
+  assert.equal(updates.at(-1).data.queriedAt, '2026-10-10T11:00:00.000Z')
+  controller.setRoutes([])
 })
 
 test('429 backs off one route while another continues; authentication blocks automatic retry', async () => {
@@ -148,4 +214,24 @@ test('offline aborts in-flight work and reconnect schedules one request without 
   assert.equal(clock.pending(), 1)
   controller.setRoutes([])
   assert.equal(clock.pending(), 0)
+})
+
+test('internal daily budget exhaustion stops automatic vehicle polling and clears current progress', async () => {
+  const clock = fakeClock()
+  let requests = 0
+  const updates = []
+  const controller = new VehiclePollingController(() => {
+    requests++
+    return Promise.reject(Object.assign(new Error('차량 운행 구간 조회 가능 횟수를 모두 사용했습니다.'),
+      { status: 429, code: 'INTERNAL_BUDGET_EXHAUSTED' }))
+  }, (_key, event) => updates.push(event), clock.now, clock.setTimer, clock.clearTimer, () => 0)
+  controller.setRoutes([route('4')])
+  clock.advance(0)
+  await flush()
+  assert.equal(updates.at(-1).status, 'error')
+  assert.equal(clock.pending(), 0)
+  clock.advance(600_000)
+  await flush()
+  assert.equal(requests, 1)
+  controller.setRoutes([])
 })

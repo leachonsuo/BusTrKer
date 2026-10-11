@@ -68,6 +68,7 @@ functions/node_modules/
 .env.*
 !.env.example
 functions/.secret.local
+functions/.budget.local.json*
 dist/
 functions/lib/
 *.tsbuildinfo

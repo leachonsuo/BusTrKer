@@ -41,10 +41,10 @@ async function main() {
     await evalJs(`(() => {const input=document.querySelector(".top-search input"); Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set.call(input,${JSON.stringify(routeName)}); input.dispatchEvent(new Event("input",{bubbles:true})); return true})()`)
     await until(`!![...document.querySelectorAll(".route-result")].find(x=>x.querySelector(".route-result-number")?.textContent===${JSON.stringify(routeName)})`, 'route search')
     await evalJs(`[...document.querySelectorAll(".route-result")].find(x=>x.querySelector(".route-result-number")?.textContent===${JSON.stringify(routeName)}).click()`)
-    await until('document.querySelectorAll(".vehicle-row").length > 0 || !!document.querySelector(".vehicle-group .route-error")', 'vehicle result')
+    await until('document.querySelectorAll(".vehicle-row").length > 0 || !!document.querySelector(".vehicle-group .route-error") || document.querySelector(".vehicle-group-heading strong")?.textContent?.includes("0대")', 'vehicle result')
     await until('document.querySelector(".selected-route .route-status")?.textContent?.includes("노선형상") || !!document.querySelector(".selected-route>.route-error")', 'route shape result')
     const desktop = await evalJs('({ route:document.querySelector(".selected-route-name strong")?.textContent, vehicles:document.querySelectorAll(".vehicle-row").length, status:document.querySelector(".vehicle-group-heading")?.textContent, gpsLabel:[...document.querySelectorAll(".vehicle-row small")].some(x=>x.textContent?.includes("GPS 없음")), errorVisible:!!document.querySelector(".vehicle-group .route-error"), roadShape:!!document.querySelector(".selected-route .route-status")?.textContent?.includes("노선형상") })')
-    if ((!desktop.gpsLabel && !desktop.errorVisible) || !desktop.roadShape) throw new Error(`Vehicle or route state mismatch: ${JSON.stringify(desktop)}`)
+    if ((desktop.vehicles > 0 && !desktop.gpsLabel && !desktop.errorVisible) || !desktop.roadShape) throw new Error(`Vehicle or route state mismatch: ${JSON.stringify(desktop)}`)
     const sectionClickable = await evalJs('[...document.querySelectorAll(".vehicle-row")].some(x=>x.textContent?.includes("구간 기준 위치"))')
     if (sectionClickable) {
       await evalJs('[...document.querySelectorAll(".vehicle-row")].find(x=>x.textContent?.includes("구간 기준 위치")).click()')

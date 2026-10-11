@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1593" viewBox="0 0 1500 1593">
+<rect width="1500" height="1593" fill="#f7f9fc"/>
+<style>text{font-family:Arial,'Malgun Gothic',sans-serif;fill:#203047}.title{font-size:22px;font-weight:700}.small{font-size:12px}.row{font-size:13px;font-family:Consolas,monospace}.row.sharp{fill:#bd3333;font-weight:700}.heading{font-size:14px;font-weight:700}</style>
+<defs><marker id="out" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0 L5 2.5 L0 5" fill="none" stroke="#2463d4" stroke-width="1.2"/></marker>
+<marker id="back" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0 L5 2.5 L0 5" fill="none" stroke="#df6031" stroke-width="1.2"/></marker></defs>
+<text x="25" y="35" class="title">Image 3: middle small circle, south-east approach</text>
+<text x="25" y="55" class="small">Saved GBIS snapshot | ordered zero-based point index | blue outbound, orange return | no road tiles</text>
+<rect x="15" y="75" width="720" height="720" rx="12" fill="white" stroke="#dce4ed"/>
+<text x="35" y="100" class="heading">Original · route 219000001</text>
+<path d="M183.2 475.3L209.6 490.9" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M209.6 490.9L378.5 535.4" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M277.1 508.7L310.9 517.6" stroke="#2463d4" stroke-width="1.5" fill="none" marker-end="url(#out)"/>
+<path d="M378.5 535.4L411.9 548.7" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M411.9 548.7L438.3 564.3" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M438.3 564.3L455.9 575.4" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M455.9 575.4L468.2 577.6" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M468.2 577.6L473.5 588.8" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M473.5 588.8L501.6 608.8" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M501.6 608.8L626.6 704.4" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M551.6 647L576.6 666.2" stroke="#2463d4" stroke-width="1.5" fill="none" marker-end="url(#out)"/>
+<path d="M626.6 704.4L645.9 717.8" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M645.9 717.8L658.2 722.2" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M658.2 722.2L649.4 735.6" stroke="#2463d4" stroke-width="3" fill="none"/>
+<circle cx="183.2" cy="475.3" r="2.5" fill="#2463d4"/>
+<text x="188.2" y="468.3" font-size="11" font-weight="bold" fill="#2463d4">329</text>
+<circle cx="209.6" cy="490.9" r="2.5" fill="#2463d4"/>
+<circle cx="378.5" cy="535.4" r="2.5" fill="#2463d4"/>
+<circle cx="411.9" cy="548.7" r="2.5" fill="#2463d4"/>
+<text x="416.9" y="541.7" font-size="11" font-weight="bold" fill="#2463d4">332</text>
+<circle cx="438.3" cy="564.3" r="2.5" fill="#2463d4"/>
+<circle cx="455.9" cy="575.4" r="2.5" fill="#2463d4"/>
+<circle cx="468.2" cy="577.6" r="5" fill="#2463d4"/>
+<text x="473.2" y="570.6" font-size="11" font-weight="bold" fill="#2463d4">335</text>
+<circle cx="473.5" cy="588.8" r="2.5" fill="#2463d4"/>
+<circle cx="501.6" cy="608.8" r="2.5" fill="#2463d4"/>
+<circle cx="626.6" cy="704.4" r="2.5" fill="#2463d4"/>
+<text x="631.6" y="697.4" font-size="11" font-weight="bold" fill="#2463d4">338</text>
+<circle cx="645.9" cy="717.8" r="2.5" fill="#2463d4"/>
+<circle cx="658.2" cy="722.2" r="2.5" fill="#2463d4"/>
+<circle cx="649.4" cy="735.6" r="2.5" fill="#2463d4"/>
+<text x="654.4" y="728.6" font-size="11" font-weight="bold" fill="#2463d4">341</text>
+<path d="M660 740L658.2 722.2" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M658.2 722.2L651.2 711.1" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M651.2 711.1L616 684.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M616 684.4L506.9 599.9" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M572.4 650.6L550.6 633.7" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M506.9 599.9L480.5 582.1" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M480.5 582.1L468.2 577.6" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M468.2 577.6L459.4 566.5" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M459.4 566.5L443.6 555.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M443.6 555.4L415.4 539.8" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M415.4 539.8L382 526.5" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M382 526.5L211.3 482" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M313.7 508.7L279.6 499.8" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M211.3 482L188.4 466.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M188.4 466.4L132.1 426.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M165.9 450.4L154.7 442.4" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M132.1 426.4L74.1 384.1" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M108.9 409.5L97.3 401" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M74.1 384.1L60 381.9" stroke="#df6031" stroke-width="3" fill="none"/>
+<circle cx="660" cy="740" r="2.5" fill="#df6031"/>
+<text x="665" y="754" font-size="11" font-weight="bold" fill="#df6031">629</text>
+<circle cx="658.2" cy="722.2" r="2.5" fill="#df6031"/>
+<circle cx="651.2" cy="711.1" r="2.5" fill="#df6031"/>
+<circle cx="616" cy="684.4" r="2.5" fill="#df6031"/>
+<text x="621" y="698.4" font-size="11" font-weight="bold" fill="#df6031">632</text>
+<circle cx="506.9" cy="599.9" r="2.5" fill="#df6031"/>
+<circle cx="480.5" cy="582.1" r="2.5" fill="#df6031"/>
+<circle cx="468.2" cy="577.6" r="5" fill="#df6031"/>
+<text x="473.2" y="591.6" font-size="11" font-weight="bold" fill="#df6031">635</text>
+<circle cx="459.4" cy="566.5" r="2.5" fill="#df6031"/>
+<circle cx="443.6" cy="555.4" r="2.5" fill="#df6031"/>
+<circle cx="415.4" cy="539.8" r="2.5" fill="#df6031"/>
+<text x="420.4" y="553.8" font-size="11" font-weight="bold" fill="#df6031">638</text>
+<circle cx="382" cy="526.5" r="2.5" fill="#df6031"/>
+<circle cx="211.3" cy="482" r="2.5" fill="#df6031"/>
+<circle cx="188.4" cy="466.4" r="2.5" fill="#df6031"/>
+<text x="193.4" y="480.4" font-size="11" font-weight="bold" fill="#df6031">641</text>
+<circle cx="132.1" cy="426.4" r="2.5" fill="#df6031"/>
+<circle cx="74.1" cy="384.1" r="2.5" fill="#df6031"/>
+<circle cx="60" cy="381.9" r="2.5" fill="#df6031"/>
+<text x="65" y="395.9" font-size="11" font-weight="bold" fill="#df6031">644</text>
+<circle cx="616" cy="717" r="6" fill="white" stroke="#19896b" stroke-width="2"/>
+<text x="624" y="709" font-size="11" fill="#116047">stop 36</text>
+<circle cx="616" cy="683.7" r="6" fill="white" stroke="#19896b" stroke-width="2"/>
+<text x="624" y="675.7" font-size="11" fill="#116047">stop 68</text>
+<circle cx="129.2" cy="424.2" r="6" fill="white" stroke="#19896b" stroke-width="2"/>
+<text x="137.2" y="416.2" font-size="11" fill="#116047">stop 69</text>
+<text x="35" y="780" class="small">* corrected coordinate. Arrows follow increasing index; stops are unsnapped.</text>
+<rect x="765" y="75" width="720" height="720" rx="12" fill="white" stroke="#dce4ed"/>
+<text x="785" y="100" class="heading">Adjusted · route 219000001</text>
+<path d="M933.2 475.3L959.6 490.9" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M959.6 490.9L1128.5 535.4" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1027.1 508.7L1060.9 517.6" stroke="#2463d4" stroke-width="1.5" fill="none" marker-end="url(#out)"/>
+<path d="M1128.5 535.4L1161.9 548.7" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1161.9 548.7L1188.3 564.3" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1188.3 564.3L1205.9 575.4" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1205.9 575.4L1218.2 577.6" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1218.2 577.6L1223.5 588.8" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1223.5 588.8L1251.6 608.8" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1251.6 608.8L1376.6 704.4" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1301.6 647L1326.6 666.2" stroke="#2463d4" stroke-width="1.5" fill="none" marker-end="url(#out)"/>
+<path d="M1376.6 704.4L1395.9 717.8" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1395.9 717.8L1408.2 722.2" stroke="#2463d4" stroke-width="3" fill="none"/>
+<path d="M1408.2 722.2L1399.4 735.6" stroke="#2463d4" stroke-width="3" fill="none"/>
+<circle cx="933.2" cy="475.3" r="2.5" fill="#2463d4"/>
+<text x="938.2" y="468.3" font-size="11" font-weight="bold" fill="#2463d4">329</text>
+<circle cx="959.6" cy="490.9" r="2.5" fill="#2463d4"/>
+<circle cx="1128.5" cy="535.4" r="2.5" fill="#2463d4"/>
+<circle cx="1161.9" cy="548.7" r="2.5" fill="#2463d4"/>
+<text x="1166.9" y="541.7" font-size="11" font-weight="bold" fill="#2463d4">332</text>
+<circle cx="1188.3" cy="564.3" r="2.5" fill="#2463d4"/>
+<circle cx="1205.9" cy="575.4" r="2.5" fill="#2463d4"/>
+<circle cx="1218.2" cy="577.6" r="5" fill="#2463d4"/>
+<text x="1223.2" y="570.6" font-size="11" font-weight="bold" fill="#2463d4">335</text>
+<circle cx="1223.5" cy="588.8" r="2.5" fill="#2463d4"/>
+<circle cx="1251.6" cy="608.8" r="2.5" fill="#2463d4"/>
+<circle cx="1376.6" cy="704.4" r="2.5" fill="#2463d4"/>
+<text x="1381.6" y="697.4" font-size="11" font-weight="bold" fill="#2463d4">338</text>
+<circle cx="1395.9" cy="717.8" r="2.5" fill="#2463d4"/>
+<circle cx="1408.2" cy="722.2" r="2.5" fill="#2463d4"/>
+<circle cx="1399.4" cy="735.6" r="2.5" fill="#2463d4"/>
+<text x="1404.4" y="728.6" font-size="11" font-weight="bold" fill="#2463d4">341</text>
+<path d="M1410 740L1408.2 722.2" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1408.2 722.2L1401.2 711.1" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1401.2 711.1L1366 684.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1366 684.4L1256.9 599.9" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1322.4 650.6L1300.6 633.7" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M1256.9 599.9L1230.5 582.1" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1230.5 582.1L1218.2 577.6" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1218.2 577.6L1209.4 566.5" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1209.4 566.5L1193.6 555.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1193.6 555.4L1165.4 539.8" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1165.4 539.8L1132 526.5" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1132 526.5L961.3 482" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M1063.7 508.7L1029.6 499.8" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M961.3 482L938.4 466.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M938.4 466.4L882.1 426.4" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M915.9 450.4L904.7 442.4" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M882.1 426.4L824.1 384.1" stroke="#df6031" stroke-width="3" fill="none"/>
+<path d="M858.9 409.5L847.3 401" stroke="#df6031" stroke-width="1.5" fill="none" marker-end="url(#back)"/>
+<path d="M824.1 384.1L810 381.9" stroke="#df6031" stroke-width="3" fill="none"/>
+<circle cx="1410" cy="740" r="2.5" fill="#df6031"/>
+<text x="1415" y="754" font-size="11" font-weight="bold" fill="#df6031">629</text>
+<circle cx="1408.2" cy="722.2" r="2.5" fill="#df6031"/>
+<circle cx="1401.2" cy="711.1" r="2.5" fill="#df6031"/>
+<circle cx="1366" cy="684.4" r="2.5" fill="#df6031"/>
+<text x="1371" y="698.4" font-size="11" font-weight="bold" fill="#df6031">632</text>
+<circle cx="1256.9" cy="599.9" r="2.5" fill="#df6031"/>
+<circle cx="1230.5" cy="582.1" r="2.5" fill="#df6031"/>
+<circle cx="1218.2" cy="577.6" r="5" fill="#df6031"/>
+<text x="1223.2" y="591.6" font-size="11" font-weight="bold" fill="#df6031">635</text>
+<circle cx="1209.4" cy="566.5" r="2.5" fill="#df6031"/>
+<circle cx="1193.6" cy="555.4" r="2.5" fill="#df6031"/>
+<circle cx="1165.4" cy="539.8" r="2.5" fill="#df6031"/>
+<text x="1170.4" y="553.8" font-size="11" font-weight="bold" fill="#df6031">638</text>
+<circle cx="1132" cy="526.5" r="2.5" fill="#df6031"/>
+<circle cx="961.3" cy="482" r="2.5" fill="#df6031"/>
+<circle cx="938.4" cy="466.4" r="2.5" fill="#df6031"/>
+<text x="943.4" y="480.4" font-size="11" font-weight="bold" fill="#df6031">641</text>
+<circle cx="882.1" cy="426.4" r="2.5" fill="#df6031"/>
+<circle cx="824.1" cy="384.1" r="2.5" fill="#df6031"/>
+<circle cx="810" cy="381.9" r="2.5" fill="#df6031"/>
+<text x="815" y="395.9" font-size="11" font-weight="bold" fill="#df6031">644</text>
+<circle cx="1366" cy="717" r="6" fill="white" stroke="#19896b" stroke-width="2"/>
+<text x="1374" y="709" font-size="11" fill="#116047">stop 36</text>
+<circle cx="1366" cy="683.7" r="6" fill="white" stroke="#19896b" stroke-width="2"/>
+<text x="1374" y="675.7" font-size="11" fill="#116047">stop 68</text>
+<circle cx="879.2" cy="424.2" r="6" fill="white" stroke="#19896b" stroke-width="2"/>
+<text x="887.2" y="416.2" font-size="11" fill="#116047">stop 69</text>
+<text x="785" y="780" class="small">* corrected coordinate. Arrows follow increasing index; stops are unsnapped.</text>
+<text x="25" y="825" class="heading">Ordered segments · heading 0° north / 90° east · turn is angle between incoming and outgoing</text>
+<text x="25" y="845" class="small">Sharp turns ≥ 55° bold red; each row's distance and heading lead to the next index within its pass.</text>
+<text x="25" y="870" class="row" font-weight="bold">Pass   Index  Latitude    Longitude    Next m  Heading°  Turn°  Moved m</text>
+<text x="25" y="875" class="row">outbound  329  37.655570  126.838040    15.3     120.5    5.2        0</text>
+<text x="25" y="897" class="row">outbound  330  37.655500  126.838190    87.4     104.8   15.8        0</text>
+<text x="25" y="919" class="row">outbound  331  37.655300  126.839150      18     111.8      7        0</text>
+<text x="25" y="941" class="row">outbound  332  37.655240  126.839340    15.3     120.5    8.8        0</text>
+<text x="25" y="963" class="row">outbound  333  37.655170  126.839490    10.4     122.3    1.8        0</text>
+<text x="25" y="985" class="row">outbound  334  37.655120  126.839590     6.3     100.2   22.1        0</text>
+<text x="25" y="1007" class="row">outbound  335  37.655110  126.839660     6.2     154.6   54.4        0</text>
+<text x="25" y="1029" class="row">outbound  336  37.655060  126.839690    17.3     125.4   29.2        0</text>
+<text x="25" y="1051" class="row">outbound  337  37.654970  126.839850    78.7     127.4      2        0</text>
+<text x="25" y="1073" class="row">outbound  338  37.654540  126.840560    11.8     124.6    2.9        0</text>
+<text x="25" y="1095" class="row">outbound  339  37.654480  126.840670     6.6     109.9   14.7        0</text>
+<text x="25" y="1117" class="row sharp">outbound  340  37.654460  126.840740       8     213.4  103.5        0</text>
+<text x="25" y="1139" class="row">outbound  341  37.654400  126.840690       -         -   23.9        0</text>
+<text x="25" y="1161" class="row">return    629  37.654380  126.840750     8.9     354.4   15.6        0</text>
+<text x="25" y="1183" class="row">return    630  37.654460  126.840740     6.6     327.7   26.7        0</text>
+<text x="25" y="1205" class="row">return    631  37.654510  126.840700    22.1     307.2   20.5        0</text>
+<text x="25" y="1227" class="row">return    632  37.654630  126.840500    69.1     307.8    0.6        0</text>
+<text x="25" y="1249" class="row">return    633  37.655010  126.839880    15.9       304    3.8        0</text>
+<text x="25" y="1271" class="row">return    634  37.655090  126.839730     6.6     289.9   14.1        0</text>
+<text x="25" y="1293" class="row">return    635  37.655110  126.839660     7.1     321.7   31.8        0</text>
+<text x="25" y="1315" class="row">return    636  37.655160  126.839610     9.7     305.1   16.6        0</text>
+<text x="25" y="1337" class="row">return    637  37.655210  126.839520    16.1     298.9    6.1        0</text>
+<text x="25" y="1359" class="row">return    638  37.655280  126.839360      18     291.8    7.2        0</text>
+<text x="25" y="1381" class="row">return    639  37.655340  126.839170    88.3     284.6    7.2        0</text>
+<text x="25" y="1403" class="row">return    640  37.655540  126.838200    13.8     304.2   19.6        0</text>
+<text x="25" y="1425" class="row">return    641  37.655610  126.838070    34.6     305.4    1.2        0</text>
+<text x="25" y="1447" class="row">return    642  37.655790  126.837750    35.9       306    0.6        0</text>
+<text x="25" y="1469" class="row">return    643  37.655980  126.837420     7.1       279   27.1        0</text>
+<text x="25" y="1491" class="row">return    644  37.655990  126.837340       -         -    6.7        0</text>
+<text x="780" y="870" class="heading">Shared vertices and segment contacts</text>
+<text x="780" y="875" class="small">point 37.65599,126.83734 → indexes 327, 644</text>
+<text x="780" y="895" class="small">point 37.65511,126.83966 → indexes 335, 635</text>
+<text x="780" y="915" class="small">point 37.65446,126.84074 → indexes 340, 630</text>
+<text x="780" y="935" class="small">endpoint-touch: 334→335 / 634→635</text>
+<text x="780" y="955" class="small">endpoint-touch: 334→335 / 635→636</text>
+<text x="780" y="975" class="small">endpoint-touch: 335→336 / 634→635</text>
+<text x="780" y="995" class="small">endpoint-touch: 335→336 / 635→636</text>
+<text x="780" y="1015" class="small">endpoint-touch: 339→340 / 629→630</text>
+<text x="780" y="1035" class="small">endpoint-touch: 339→340 / 630→631</text>
+<text x="780" y="1055" class="small">endpoint-touch: 340→341 / 629→630</text>
+<text x="780" y="1075" class="small">endpoint-touch: 340→341 / 630→631</text>
+<text x="780" y="1523" class="heading">Nearest ordered stop coordinates</text>
+<text x="780" y="1545" class="small">36 성사1동행정복지센터 → point 338 (8.2m)</text>
+<text x="780" y="1565" class="small">68 성사1동행정복지센터 → point 632 (0.4m)</text>
+<text x="780" y="1585" class="small">69 롯데캐슬.원당시장 → point 642 (1.8m)</text>
+</svg>

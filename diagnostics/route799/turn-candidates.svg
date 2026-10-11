@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="740" viewBox="0 0 1040 740">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#1557bd" stroke-width="1.5"/></marker></defs>
+<text x="32" y="36" font-size="20" font-family="sans-serif" font-weight="700" fill="#18325a">route 229000071 · shape 700–742</text>
+<text x="32" y="62" font-size="13" font-family="sans-serif" fill="#52637a">Blue: ordered shape and arrows · red: actual GBIS stop positions / visit sequences · no basemap</text>
+<path d="M95.25 645.27 L99.30 642.43 L102.00 637.89 L105.15 623.70 L132.61 533.99 L159.61 443.15 L160.06 435.77 L163.21 430.09 L167.26 413.62 L170.41 392.62 L169.51 386.37 L172.21 380.13 L173.11 371.61 L171.31 338.11 L169.06 331.87 L171.76 322.78 L169.51 243.30 L167.26 146.21 L163.66 134.29 L165.91 124.07 L165.01 99.65 L161.41 90.00 L158.26 100.22 L159.61 124.07 L160.06 125.77 L163.66 134.29 L160.51 145.64 L166.36 314.27 L166.36 323.35 L169.06 331.87 L166.81 338.68 L168.61 372.18 L168.16 379.56 L169.51 386.37 L166.36 392.05 L162.76 411.92 L159.61 429.52 L160.06 435.77 L156.01 441.44 L135.76 509.58 L105.60 608.93 L101.55 622.56 L98.40 637.32" fill="none" stroke="#2f6edf" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M105.2 623.7 L132.6 534.0" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M172.2 380.1 L173.1 371.6" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M165.9 124.1 L165.0 99.7" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M166.4 314.3 L166.4 323.3" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M162.8 411.9 L159.6 429.5" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="95.3" cy="645.3" r="3" fill="#1557bd"/>
+<text x="100.3" y="640.3" font-size="11" font-family="sans-serif" fill="#1557bd">700</text>
+<circle cx="173.1" cy="371.6" r="3" fill="#1557bd"/>
+<text x="178.1" y="366.6" font-size="11" font-family="sans-serif" fill="#1557bd">712</text>
+<circle cx="160.1" cy="125.8" r="3" fill="#1557bd"/>
+<text x="165.1" y="120.8" font-size="11" font-family="sans-serif" fill="#1557bd">724</text>
+<circle cx="159.6" cy="429.5" r="3" fill="#1557bd"/>
+<text x="164.6" y="424.5" font-size="11" font-family="sans-serif" fill="#1557bd">736</text>
+<circle cx="90.0" cy="650.0" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="99.0" y="655.0" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">69 숭례문교차로(경유)</text>
+<circle cx="142.5" cy="537.4" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="151.5" y="542.4" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">70 소공동주민센터</text>
+<circle cx="176.3" cy="245.0" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="185.3" y="250.0" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">71 프레스센터</text>
+<circle cx="149.3" cy="130.5" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="158.3" y="135.5" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">72 광화문역6번출구.광화문빌딩</text>
+<circle cx="155.3" cy="316.0" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="164.3" y="321.0" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">73 시청앞.덕수궁</text>
+<circle cx="123.8" cy="512.8" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="132.8" y="517.8" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">74 시청역8번출구</text>
+<circle cx="93.8" cy="607.4" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="102.8" y="612.4" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">75 신한은행본점</text>
+</svg>

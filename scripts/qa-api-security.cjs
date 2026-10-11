@@ -11,6 +11,9 @@ test('invalid coordinates, search terms, methods and paths are rejected before u
   assert.equal((await request('/api/stops/nearby?lat=37.658&lng=invalid')).status, 400)
   assert.equal((await request(`/api/routes/search?q=${'x'.repeat(31)}`)).status, 400)
   assert.equal((await request('/api/routes/not-a-number/vehicles')).status, 404)
+  const missing = await request('/api/unsupported')
+  assert.equal(missing.status, 404)
+  assert.match(missing.headers.get('content-type') ?? '', /application\/json/)
   assert.equal((await request('/api/health', { method: 'POST' })).status, 405)
 })
 

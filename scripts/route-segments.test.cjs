@@ -27,10 +27,17 @@ test('ordered GBIS stops anchor an actual road-shape section', () => {
 
 test('uncertain stop identity, distant stops, and conflicting loop anchors are not drawn', () => {
   const points = [p(126.8), p(126.801), p(126.802)]
-  assert.equal(verifiedRoadSection({ points }, [stop(2, 126.801), stop(3, 126.802)], { ...vehicle, currentStopId: { value: '9' } }), null)
-  assert.equal(verifiedRoadSection({ points }, [stop(2, 126.801), stop(3, 126.9)], vehicle), null)
+  let reason
+  assert.equal(verifiedRoadSection({ points }, [stop(2, 126.801), stop(3, 126.802)], { ...vehicle, currentStopId: { value: '9' } },
+    (value) => { reason = value }), null)
+  assert.equal(reason, 'stop_identity')
+  assert.equal(verifiedRoadSection({ points }, [stop(2, 126.801), stop(3, 126.9)], vehicle,
+    (value) => { reason = value }), null)
+  assert.equal(reason, 'end_anchor_too_far')
   const loop = [p(126.8), p(126.801), p(126.802), p(126.801), p(126.8), p(126.801), p(126.802)]
-  assert.equal(verifiedRoadSection({ points: loop }, [stop(2, 126.8), stop(3, 126.801)], vehicle), null)
+  assert.equal(verifiedRoadSection({ points: loop }, [stop(2, 126.8), stop(3, 126.801)], vehicle,
+    (value) => { reason = value }), null)
+  assert.equal(reason, 'ambiguous_loop')
 })
 
 test('successive observations are joined by vehicle ID, not row order', () => {
@@ -48,4 +55,20 @@ test('two vehicles on one section share one drawn path, other routes remain sepa
   assert.equal(groups.length, 2)
   assert.deepEqual(groups[0].map((item) => item.key), ['a:1', 'a:2'])
   assert.deepEqual(groups[1].map((item) => item.key), ['b:1'])
+})
+
+test('sanitized Goyang 11 production shape still matches verified vehicles after reference replacement', () => {
+  const captured = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'goyang-11-sanitized.json'), 'utf8'))
+  const verified = captured.vehicles.vehicles.filter((item) => item.sectionVerified)
+  assert.equal(captured.shape.shape.points.length, 972)
+  assert.equal(captured.stops.stops.length, 104)
+  assert.equal(verified.length, 7)
+  const matched = (shape, stops) => verified.filter((item) => verifiedRoadSection(shape, stops, item)).length
+  assert.equal(matched(captured.shape.shape, captured.stops.stops), 7)
+  assert.equal(matched(structuredClone(captured.shape.shape), structuredClone(captured.stops.stops)), 7)
+  const mismatched = verified.map((vehicle) => ({ ...vehicle, currentStopId: { ...vehicle.currentStopId, value: '0' } }))
+  const reasons = []
+  assert.equal(mismatched.filter((vehicle) => verifiedRoadSection(captured.shape.shape, captured.stops.stops, vehicle,
+    (reason) => reasons.push(reason))).length, 0)
+  assert.deepEqual(reasons, Array(7).fill('stop_identity'))
 })

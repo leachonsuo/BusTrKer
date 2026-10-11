@@ -1,4 +1,5 @@
-type Operation = 'http' | 'httpError' | 'upstream' | 'cacheHit' | 'cacheMiss' | 'cacheJoin' | 'upstreamError'
+type Operation = 'http' | 'httpError' | 'upstream' | 'cacheHit' | 'cacheMiss' | 'cacheJoin' | 'upstreamError' |
+  'budgetReserved' | 'budgetDenied' | 'budgetUnavailable'
 
 interface Counter { count: number; totalMs: number; samples: number[] }
 const enabled = process.env.FUNCTIONS_EMULATOR === 'true' || process.env.BUSTRACKER_TEST_METRICS === '1'

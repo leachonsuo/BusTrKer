@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="740" viewBox="0 0 1040 740">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#1557bd" stroke-width="1.5"/></marker></defs>
+<text x="32" y="36" font-size="20" font-family="sans-serif" font-weight="700" fill="#18325a">route 241293003 · shape 345–405</text>
+<text x="32" y="62" font-size="13" font-family="sans-serif" fill="#52637a">Blue: ordered shape and arrows · red: actual GBIS stop positions / visit sequences · no basemap</text>
+<path d="M950.00 334.10 L931.29 345.92 L911.24 356.90 L891.20 366.20 L889.19 366.20 L874.49 371.26 L857.12 374.64 L848.43 375.49 L840.41 378.02 L831.72 376.33 L819.03 375.49 L802.32 374.64 L776.26 369.57 L757.55 361.97 L737.51 352.68 L718.13 340.86 L602.53 261.46 L554.41 228.52 L547.73 226.83 L540.38 219.23 L500.29 191.36 L457.52 169.40 L420.10 151.66 L383.35 138.99 L331.90 124.63 L239.68 99.29 L219.63 91.69 L207.61 90.00 L197.58 95.07 L179.54 110.27 L97.35 161.79 L90.00 170.24 L101.36 166.86 L182.88 114.49 L200.92 100.14 L207.61 90.00 L216.96 96.76 L237.68 104.36 L291.80 119.56 L381.34 144.06 L417.43 156.73 L454.85 173.62 L496.28 196.42 L539.04 223.45 L547.73 226.83 L551.74 232.74 L606.53 269.91 L717.46 345.92 L736.17 356.90 L754.88 366.20 L774.93 373.80 L802.32 378.86 L819.03 379.71 L831.72 379.71 L840.41 378.02 L849.10 378.86 L856.45 378.86 L859.79 378.02 L876.50 375.49 L893.87 368.73 L912.58 361.13" fill="none" stroke="#2f6edf" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M802.3 374.6 L776.3 369.6" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M540.4 219.2 L500.3 191.4" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M207.6 90.0 L197.6 95.1" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M207.6 90.0 L217.0 96.8" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M539.0 223.5 L547.7 226.8" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M802.3 378.9 L819.0 379.7" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M893.9 368.7 L912.6 361.1" fill="none" stroke="#1557bd" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="950.0" cy="334.1" r="3" fill="#1557bd"/>
+<text x="955.0" y="329.1" font-size="11" font-family="sans-serif" fill="#1557bd">345</text>
+<circle cx="776.3" cy="369.6" r="3" fill="#1557bd"/>
+<text x="781.3" y="364.6" font-size="11" font-family="sans-serif" fill="#1557bd">357</text>
+<circle cx="331.9" cy="124.6" r="3" fill="#1557bd"/>
+<text x="336.9" y="119.6" font-size="11" font-family="sans-serif" fill="#1557bd">369</text>
+<circle cx="217.0" cy="96.8" r="3" fill="#1557bd"/>
+<text x="222.0" y="91.8" font-size="11" font-family="sans-serif" fill="#1557bd">381</text>
+<circle cx="736.2" cy="356.9" r="3" fill="#1557bd"/>
+<text x="741.2" y="351.9" font-size="11" font-family="sans-serif" fill="#1557bd">393</text>
+<circle cx="912.6" cy="361.1" r="3" fill="#1557bd"/>
+<text x="917.6" y="356.1" font-size="11" font-family="sans-serif" fill="#1557bd">405</text>
+<circle cx="886.7" cy="361.1" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="895.7" y="366.1" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">33 두테비</text>
+<circle cx="602.7" cy="261.2" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="611.7" y="266.2" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">34 푸르메마을</text>
+<circle cx="333.2" cy="121.8" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="342.2" y="126.8" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">35 오미산주유소</text>
+<circle cx="287.6" cy="126.0" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="296.6" y="131.0" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">36 오미산주유소</text>
+<circle cx="600.5" cy="276.7" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="609.5" y="281.7" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">37 푸르메마을</text>
+<circle cx="860.0" cy="379.4" r="6" fill="#e23a50" stroke="#fff" stroke-width="2"/>
+<text x="869.0" y="384.4" font-size="12" font-family="sans-serif" font-weight="700" fill="#9d1730">38 두테비</text>
+</svg>

@@ -1,17 +1,26 @@
 import type { Coordinates, NearbyStopsResult, Route, RouteDetailResult, RouteSearchResult, RouteShapeResult, RouteStop, RouteStopsResult, Stop, StopArrival, StopArrivalsResult, TransitId, TransitProvider, VehiclePosition, VehiclePositionsResult } from './domain'
 import { cached } from './cache'
 import { recordMetric } from './metrics'
+import { reserveGbisAttempt, serviceForGbisApi, type GbisService } from './budget'
 
 const GBIS_BASE = 'https://apis.data.go.kr/6410000'
 const REGION = 'gyeonggi'
-let rateLimitedUntil = 0
+const rateLimitedUntil: Record<GbisService, number> = { routes: 0, stations: 0, locations: 0, arrivals: 0 }
+const exhaustedMessages: Record<GbisService, string> = {
+  routes: '노선 조회 가능 횟수를 모두 사용했습니다. 새 노선 정보는 나중에 다시 조회해 주세요.',
+  stations: '정류소 조회 가능 횟수를 모두 사용했습니다. 나중에 다시 조회해 주세요.',
+  locations: '차량 운행 구간 조회 가능 횟수를 모두 사용했습니다. 갱신을 일시 중단합니다.',
+  arrivals: '도착정보 조회 가능 횟수를 모두 사용했습니다. 나중에 다시 조회해 주세요.',
+}
 
-function rateLimitError(): TransitApiError {
-  rateLimitedUntil = Date.now() + 30_000
+function rateLimitError(service: GbisService): TransitApiError {
+  rateLimitedUntil[service] = Date.now() + 30_000
   return new TransitApiError(429, 'UPSTREAM_RATE_LIMITED', '공공데이터 API 호출 한도에 도달했습니다. 잠시 후 다시 조회해 주세요.')
 }
 
-export function resetGbisCooldownForTests(): void { rateLimitedUntil = 0 }
+export function resetGbisCooldownForTests(): void {
+  for (const service of Object.keys(rateLimitedUntil) as GbisService[]) rateLimitedUntil[service] = 0
+}
 
 export class TransitApiError extends Error {
   constructor(public readonly status: number, public readonly code: string, message: string, public readonly stage?: string) {
@@ -164,8 +173,17 @@ function gatewayError(raw: unknown): TransitApiError | null {
 }
 
 async function requestGbis(api: string, path: string, params: Record<string, string>, serviceKey: string): Promise<GbisReply> {
-  // A distinct request after a 429 should not immediately hit the same key's quota again.
-  if (Date.now() < rateLimitedUntil) throw new TransitApiError(429, 'UPSTREAM_RATE_LIMITED', '공공데이터 API 호출 한도에 도달했습니다. 잠시 후 다시 조회해 주세요.')
+  // The cooldown is scoped to the portal service; a route limit must not block arrivals.
+  const mappedService = serviceForGbisApi(api)
+  if (!mappedService) throw new TransitApiError(503, 'BUDGET_UNAVAILABLE', '안전한 호출량 기록을 확인할 수 없어 버스정보 조회를 일시 중단했습니다.')
+  if (Date.now() < rateLimitedUntil[mappedService]) {
+    throw new TransitApiError(429, 'UPSTREAM_RATE_LIMITED', '공공데이터 API 호출 한도에 도달했습니다. 잠시 후 다시 조회해 주세요.')
+  }
+  const budget = await reserveGbisAttempt(api)
+  if (budget.kind === 'unavailable') throw new TransitApiError(503, 'BUDGET_UNAVAILABLE', '안전한 호출량 기록을 확인할 수 없어 버스정보 조회를 일시 중단했습니다.')
+  if (budget.kind === 'exhausted') throw new TransitApiError(429, 'INTERNAL_BUDGET_EXHAUSTED', exhaustedMessages[budget.service])
+  const service = mappedService
+  // A reservation is deliberately not refunded after a failed or timed-out fetch.
   const url = new URL(`${GBIS_BASE}${path}`)
   url.search = new URLSearchParams({ format: 'json', serviceKey, ...params }).toString()
   const started = performance.now()
@@ -186,17 +204,17 @@ async function requestGbis(api: string, path: string, params: Record<string, str
     raw = await response.json() as unknown
   } catch {
     diagnostic(api, response.status, contentType, null, 'json-parse')
-    if (response.status === 429) throw rateLimitError()
+    if (response.status === 429) throw rateLimitError(service)
     if (!response.ok) throw new TransitApiError(502, 'UPSTREAM_HTTP_ERROR', `GBIS HTTP 오류 (${response.status}).`)
     throw new TransitApiError(502, 'INVALID_UPSTREAM_RESPONSE', 'GBIS가 JSON 응답을 반환하지 않았습니다.')
   }
   const upstreamError = gatewayError(raw)
   diagnostic(api, response.status, contentType, raw, upstreamError ? 'gateway-error' : !response.ok ? 'http-status' : undefined)
   if (upstreamError) {
-    if (upstreamError.status === 429) throw rateLimitError()
+    if (upstreamError.status === 429) throw rateLimitError(service)
     throw upstreamError
   }
-  if (response.status === 429) throw rateLimitError()
+  if (response.status === 429) throw rateLimitError(service)
   if (!response.ok) throw new TransitApiError(502, 'UPSTREAM_HTTP_ERROR', `GBIS HTTP 오류 (${response.status}).`)
   return { raw, status: response.status, contentType }
   } catch (error) {

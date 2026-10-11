@@ -33,6 +33,11 @@ export interface VehiclePosition {
   observedAt: null
 }
 export interface VehiclePositionsResult { routeId: TransitId; vehicles: VehiclePosition[]; queriedAt: string; source: ProviderId }
+export interface VehicleFetchTiming { startedAtMs: number; completedAtMs: number; httpStatus: number; serverDateMs: number | null }
+const vehicleFetchTimings = new WeakMap<VehiclePositionsResult, VehicleFetchTiming>()
+export function vehicleFetchTiming(result: VehiclePositionsResult): VehicleFetchTiming | null {
+  return vehicleFetchTimings.get(result) ?? null
+}
 
 export function transitKey(id: TransitId): string { return `${id.provider}:${id.regionCode}:${id.value}` }
 
@@ -44,7 +49,7 @@ export class TransitRequestError extends Error {
   constructor(public readonly status: number, public readonly code: string, message: string) { super(message) }
 }
 
-async function readJson(url: string, signal: AbortSignal): Promise<unknown> {
+async function readJson(url: string, signal: AbortSignal, onResponse?: (response: Response) => void): Promise<unknown> {
   let response: Response
   try {
     response = await fetch(url, { signal })
@@ -53,6 +58,7 @@ async function readJson(url: string, signal: AbortSignal): Promise<unknown> {
     throw new TransitRequestError(0, 'NETWORK_ERROR', '서버에 연결하지 못했습니다. Firebase 에뮬레이터가 실행 중인지 확인해 주세요.')
   }
   const body: unknown = await response.json().catch(() => null)
+  onResponse?.(response)
   if (!response.ok) {
     const message = body && typeof body === 'object' && 'message' in body && typeof body.message === 'string' ? body.message : `서버 오류 (${response.status})`
     const code = body && typeof body === 'object' && 'error' in body && typeof body.error === 'string' ? body.error : 'HTTP_ERROR'
@@ -117,13 +123,22 @@ function validVehicle(value: unknown, routeId: TransitId): value is VehiclePosit
 }
 
 export async function getVehiclePositions(routeId: TransitId, signal: AbortSignal): Promise<VehiclePositionsResult> {
-  const body = object(await readJson(`/api/routes/${encodeURIComponent(routeId.value)}/vehicles`, signal))
+  const startedAtMs = Date.now()
+  let httpStatus = 0
+  let serverDateMs: number | null = null
+  const body = object(await readJson(`/api/routes/${encodeURIComponent(routeId.value)}/vehicles`, signal, (response) => {
+    httpStatus = response.status
+    const parsed = Date.parse(response.headers.get('Date') ?? '')
+    serverDateMs = Number.isFinite(parsed) ? parsed : null
+  }))
   if (!body || !validId(body.routeId) || transitKey(body.routeId) !== transitKey(routeId) ||
       !Array.isArray(body.vehicles) || !body.vehicles.every((item) => validVehicle(item, routeId)) ||
       typeof body.queriedAt !== 'string' || !validProvider(body.source)) {
-    throw new Error('차량 위치 응답 형식이 올바르지 않습니다.')
+    throw new TransitRequestError(httpStatus, 'INVALID_RESPONSE', '차량 위치 응답 형식이 올바르지 않습니다.')
   }
-  return body as unknown as VehiclePositionsResult
+  const result = body as unknown as VehiclePositionsResult
+  vehicleFetchTimings.set(result, { startedAtMs, completedAtMs: Date.now(), httpStatus, serverDateMs })
+  return result
 }
 
 export async function searchRoutes(query: string, signal: AbortSignal): Promise<RouteSearchResult> {

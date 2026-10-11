@@ -2,6 +2,8 @@ import type { LatLng } from '../map/kakao'
 import type { RouteShape, RouteStop, VehiclePosition } from './api'
 
 interface Anchor { segment: number; ratio: number; along: number; error: number; point: LatLng }
+export type SectionRejectReason = 'unverified' | 'missing_next_stop' | 'missing_shape' | 'stop_identity' |
+  'start_anchor_too_far' | 'end_anchor_too_far' | 'ordered_section_unavailable' | 'ambiguous_loop'
 const METERS_PER_DEGREE = 111_320
 
 function meters(a: LatLng, b: LatLng): number {
@@ -35,17 +37,22 @@ function anchors(position: LatLng, points: LatLng[], lengths: number[]): Anchor[
 }
 
 /** Returns only a section supported by both stop order and the supplied road shape. */
-export function verifiedRoadSection(shape: RouteShape | null, stops: RouteStop[], vehicle: VehiclePosition): LatLng[] | null {
-  if (!vehicle.sectionVerified || !vehicle.nextStopId || !shape || shape.points.length < 2) return null
+export function verifiedRoadSection(shape: RouteShape | null, stops: RouteStop[], vehicle: VehiclePosition,
+  onReject?: (reason: SectionRejectReason) => void): LatLng[] | null {
+  if (!vehicle.sectionVerified) { onReject?.('unverified'); return null }
+  if (!vehicle.nextStopId) { onReject?.('missing_next_stop'); return null }
+  if (!shape || shape.points.length < 2) { onReject?.('missing_shape'); return null }
   const ordered = [...stops].sort((a, b) => a.sequence - b.sequence)
   const current = ordered.find((stop) => stop.sequence === vehicle.stationSequence && stop.id.value === vehicle.currentStopId.value)
   const next = ordered.find((stop) => stop.sequence === vehicle.stationSequence + 1 && stop.id.value === vehicle.nextStopId?.value)
-  if (!current || !next) return null
+  if (!current || !next) { onReject?.('stop_identity'); return null }
   const points = shape.points
   const lengths = [0]
   for (let i = 1; i < points.length; i++) lengths.push(lengths[i - 1] + meters(points[i - 1], points[i]))
   const starts = anchors(current.position, points, lengths)
   const ends = anchors(next.position, points, lengths)
+  if (!starts.length) { onReject?.('start_anchor_too_far'); return null }
+  if (!ends.length) { onReject?.('end_anchor_too_far'); return null }
   const previous = ordered.find((stop) => stop.sequence === current.sequence - 1)
   const following = ordered.find((stop) => stop.sequence === next.sequence + 1)
   const previousAnchors = previous ? anchors(previous.position, points, lengths) : []
@@ -59,10 +66,10 @@ export function verifiedRoadSection(shape: RouteShape | null, stops: RouteStop[]
     return [{ start, end, score: start.error + end.error + sectionLength * 0.01 }]
   })).sort((a, b) => a.score - b.score)
   const best = possibilities[0]
-  if (!best) return null
+  if (!best) { onReject?.('ordered_section_unavailable'); return null }
   const competing = possibilities.find((candidate) =>
     Math.abs(candidate.start.along - best.start.along) > 150 || Math.abs(candidate.end.along - best.end.along) > 150)
-  if (competing && competing.score - best.score < 30) return null
+  if (competing && competing.score - best.score < 30) { onReject?.('ambiguous_loop'); return null }
   const path = [best.start.point]
   for (let index = best.start.segment + 1; index <= best.end.segment; index++) path.push(points[index])
   path.push(best.end.point)

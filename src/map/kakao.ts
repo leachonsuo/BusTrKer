@@ -31,7 +31,7 @@ interface KakaoPolyline {
   setOptions(options: { strokeWeight?: number; strokeColor?: string; strokeOpacity?: number; strokeStyle?: string }): void
   setZIndex(zIndex: number): void
 }
-interface KakaoCustomOverlay { setMap(map: KakaoMap | null): void }
+interface KakaoCustomOverlay { setMap(map: KakaoMap | null): void; setPosition(position: KakaoLatLng): void }
 
 interface KakaoMapsApi {
   load(callback: () => void): void

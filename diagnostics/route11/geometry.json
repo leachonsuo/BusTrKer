@@ -1,0 +1,2918 @@
+{
+  "first": {
+    "region": "first",
+    "title": "Image 1: Won-dang middle school, two carriageways",
+    "source": "saved sanitized GBIS 11 snapshot, normalized zero-based point indexes",
+    "passes": [
+      [
+        277,
+        288
+      ],
+      [
+        682,
+        692
+      ]
+    ],
+    "stops": [
+      {
+        "sequence": 32,
+        "name": "원당중학교",
+        "latitude": 37.6629333,
+        "longitude": 126.8230833,
+        "nearestIndexInPass": 279,
+        "distanceToNearestMeters": 16.9
+      },
+      {
+        "sequence": 73,
+        "name": "원당중학교",
+        "latitude": 37.6632667,
+        "longitude": 126.8229,
+        "nearestIndexInPass": 690,
+        "distanceToNearestMeters": 6.6
+      }
+    ],
+    "sharedCoordinates": [
+      {
+        "coordinate": "37.66277,126.82396",
+        "indices": [
+          283,
+          686
+        ]
+      }
+    ],
+    "intersections": [
+      {
+        "segments": [
+          282,
+          685
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.66277,
+        "longitude": 126.82396
+      },
+      {
+        "segments": [
+          282,
+          686
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.66277,
+        "longitude": 126.82396
+      },
+      {
+        "segments": [
+          283,
+          685
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.66277,
+        "longitude": 126.82396
+      },
+      {
+        "segments": [
+          283,
+          686
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.66277,
+        "longitude": 126.82396
+      }
+    ],
+    "correctedIntersections": [],
+    "rows": [
+      {
+        "pass": "outbound",
+        "index": 277,
+        "latitude": 37.66367,
+        "longitude": 126.82037,
+        "nextMeters": 204.1,
+        "headingDegrees": 104.9,
+        "turnDegrees": 0.7,
+        "correctedLatitude": 37.66367,
+        "correctedLongitude": 126.82037,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 278,
+        "latitude": 37.6632,
+        "longitude": 126.82261,
+        "nextMeters": 53.4,
+        "headingDegrees": 107,
+        "turnDegrees": 2.1,
+        "correctedLatitude": 37.6632,
+        "correctedLongitude": 126.82261,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 279,
+        "latitude": 37.66306,
+        "longitude": 126.82319,
+        "nextMeters": 8.6,
+        "headingDegrees": 112.8,
+        "turnDegrees": 5.9,
+        "correctedLatitude": 37.66306,
+        "correctedLongitude": 126.82319,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 280,
+        "latitude": 37.66303,
+        "longitude": 126.82328,
+        "nextMeters": 29.6,
+        "headingDegrees": 116.8,
+        "turnDegrees": 4,
+        "correctedLatitude": 37.66303,
+        "correctedLongitude": 126.82328,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 281,
+        "latitude": 37.66291,
+        "longitude": 126.82358,
+        "nextMeters": 25.2,
+        "headingDegrees": 119.1,
+        "turnDegrees": 2.3,
+        "correctedLatitude": 37.66291,
+        "correctedLongitude": 126.82358,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 282,
+        "latitude": 37.6628,
+        "longitude": 126.82383,
+        "nextMeters": 11.9,
+        "headingDegrees": 106.3,
+        "turnDegrees": 12.8,
+        "correctedLatitude": 37.6628,
+        "correctedLongitude": 126.82383,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 283,
+        "latitude": 37.66277,
+        "longitude": 126.82396,
+        "nextMeters": 10.4,
+        "headingDegrees": 149.3,
+        "turnDegrees": 43.1,
+        "correctedLatitude": 37.66274052449971,
+        "correctedLongitude": 126.8239327304096,
+        "movedMeters": 4.07
+      },
+      {
+        "pass": "outbound",
+        "index": 284,
+        "latitude": 37.66269,
+        "longitude": 126.82402,
+        "nextMeters": 40.9,
+        "headingDegrees": 132.9,
+        "turnDegrees": 16.4,
+        "correctedLatitude": 37.66269,
+        "correctedLongitude": 126.82402,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 285,
+        "latitude": 37.66244,
+        "longitude": 126.82436,
+        "nextMeters": 34,
+        "headingDegrees": 133.5,
+        "turnDegrees": 0.6,
+        "correctedLatitude": 37.66244,
+        "correctedLongitude": 126.82436,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 286,
+        "latitude": 37.66223,
+        "longitude": 126.82464,
+        "nextMeters": 19.6,
+        "headingDegrees": 137.6,
+        "turnDegrees": 4.1,
+        "correctedLatitude": 37.66223,
+        "correctedLongitude": 126.82464,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 287,
+        "latitude": 37.6621,
+        "longitude": 126.82479,
+        "nextMeters": 26.9,
+        "headingDegrees": 150.5,
+        "turnDegrees": 12.9,
+        "correctedLatitude": 37.6621,
+        "correctedLongitude": 126.82479,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 288,
+        "latitude": 37.66189,
+        "longitude": 126.82494,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 4.1,
+        "correctedLatitude": 37.66189,
+        "correctedLongitude": 126.82494,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 682,
+        "latitude": 37.66192,
+        "longitude": 126.82504,
+        "nextMeters": 28.7,
+        "headingDegrees": 328.6,
+        "turnDegrees": 5,
+        "correctedLatitude": 37.66192,
+        "correctedLongitude": 126.82504,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 683,
+        "latitude": 37.66214,
+        "longitude": 126.82487,
+        "nextMeters": 22.4,
+        "headingDegrees": 318.1,
+        "turnDegrees": 10.4,
+        "correctedLatitude": 37.66214,
+        "correctedLongitude": 126.82487,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 684,
+        "latitude": 37.66229,
+        "longitude": 126.8247,
+        "nextMeters": 74.2,
+        "headingDegrees": 313.6,
+        "turnDegrees": 4.5,
+        "correctedLatitude": 37.66229,
+        "correctedLongitude": 126.8247,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 685,
+        "latitude": 37.66275,
+        "longitude": 126.82409,
+        "nextMeters": 11.7,
+        "headingDegrees": 281,
+        "turnDegrees": 32.6,
+        "correctedLatitude": 37.66275,
+        "correctedLongitude": 126.82409,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 686,
+        "latitude": 37.66277,
+        "longitude": 126.82396,
+        "nextMeters": 13.2,
+        "headingDegrees": 327.7,
+        "turnDegrees": 46.7,
+        "correctedLatitude": 37.66280567209395,
+        "correctedLongitude": 126.82399257383558,
+        "movedMeters": 4.9
+      },
+      {
+        "pass": "return",
+        "index": 687,
+        "latitude": 37.66287,
+        "longitude": 126.82388,
+        "nextMeters": 24.4,
+        "headingDegrees": 300.1,
+        "turnDegrees": 27.6,
+        "correctedLatitude": 37.66287,
+        "correctedLongitude": 126.82388,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 688,
+        "latitude": 37.66298,
+        "longitude": 126.82364,
+        "nextMeters": 31.2,
+        "headingDegrees": 295.4,
+        "turnDegrees": 4.7,
+        "correctedLatitude": 37.66298,
+        "correctedLongitude": 126.82364,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 689,
+        "latitude": 37.6631,
+        "longitude": 126.82332,
+        "nextMeters": 37.3,
+        "headingDegrees": 289.2,
+        "turnDegrees": 6.2,
+        "correctedLatitude": 37.6631,
+        "correctedLongitude": 126.82332,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 690,
+        "latitude": 37.66321,
+        "longitude": 126.82292,
+        "nextMeters": 27.5,
+        "headingDegrees": 286.4,
+        "turnDegrees": 2.7,
+        "correctedLatitude": 37.66321,
+        "correctedLongitude": 126.82292,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 691,
+        "latitude": 37.66328,
+        "longitude": 126.82262,
+        "nextMeters": 200.1,
+        "headingDegrees": 284.5,
+        "turnDegrees": 1.9,
+        "correctedLatitude": 37.66328,
+        "correctedLongitude": 126.82262,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 692,
+        "latitude": 37.66373,
+        "longitude": 126.82042,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 1.3,
+        "correctedLatitude": 37.66373,
+        "correctedLongitude": 126.82042,
+        "movedMeters": 0
+      }
+    ]
+  },
+  "second": {
+    "region": "second",
+    "title": "Image 2: city hall approach and return",
+    "source": "saved sanitized GBIS 11 snapshot, normalized zero-based point indexes",
+    "passes": [
+      [
+        293,
+        306
+      ],
+      [
+        664,
+        678
+      ]
+    ],
+    "stops": [
+      {
+        "sequence": 33,
+        "name": "고양시청.덕양구보건소",
+        "latitude": 37.6569333,
+        "longitude": 126.8311833,
+        "nearestIndexInPass": 306,
+        "distanceToNearestMeters": 6.6
+      },
+      {
+        "sequence": 71,
+        "name": "고양시청.덕양구보건소",
+        "latitude": 37.6569,
+        "longitude": 126.8314167,
+        "nearestIndexInPass": 664,
+        "distanceToNearestMeters": 7.8
+      },
+      {
+        "sequence": 72,
+        "name": "양조장입구",
+        "latitude": 37.6579833,
+        "longitude": 126.8276333,
+        "nearestIndexInPass": 675,
+        "distanceToNearestMeters": 11.1
+      }
+    ],
+    "sharedCoordinates": [
+      {
+        "coordinate": "37.65792,126.8274",
+        "indices": [
+          294,
+          676
+        ]
+      },
+      {
+        "coordinate": "37.65777,126.82973",
+        "indices": [
+          300,
+          670
+        ]
+      }
+    ],
+    "intersections": [
+      {
+        "segments": [
+          293,
+          675
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          293,
+          676
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          294,
+          675
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          294,
+          676
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          299,
+          669
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65777,
+        "longitude": 126.82973
+      },
+      {
+        "segments": [
+          299,
+          670
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65777,
+        "longitude": 126.82973
+      },
+      {
+        "segments": [
+          300,
+          669
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65777,
+        "longitude": 126.82973
+      },
+      {
+        "segments": [
+          300,
+          670
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65777,
+        "longitude": 126.82973
+      }
+    ],
+    "correctedIntersections": [
+      {
+        "segments": [
+          293,
+          675
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          293,
+          676
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          294,
+          675
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      },
+      {
+        "segments": [
+          294,
+          676
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65792,
+        "longitude": 126.8274
+      }
+    ],
+    "rows": [
+      {
+        "pass": "outbound",
+        "index": 293,
+        "latitude": 37.65797,
+        "longitude": 126.8273,
+        "nextMeters": 10.4,
+        "headingDegrees": 122.3,
+        "turnDegrees": 34.9,
+        "correctedLatitude": 37.65797,
+        "correctedLongitude": 126.8273,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 294,
+        "latitude": 37.65792,
+        "longitude": 126.8274,
+        "nextMeters": 7.8,
+        "headingDegrees": 115.4,
+        "turnDegrees": 6.9,
+        "correctedLatitude": 37.65792,
+        "correctedLongitude": 126.8274,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 295,
+        "latitude": 37.65789,
+        "longitude": 126.82748,
+        "nextMeters": 68.2,
+        "headingDegrees": 107.1,
+        "turnDegrees": 8.3,
+        "correctedLatitude": 37.65789,
+        "correctedLongitude": 126.82748,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 296,
+        "latitude": 37.65771,
+        "longitude": 126.82822,
+        "nextMeters": 21.3,
+        "headingDegrees": 96,
+        "turnDegrees": 11.1,
+        "correctedLatitude": 37.65771,
+        "correctedLongitude": 126.82822,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 297,
+        "latitude": 37.65769,
+        "longitude": 126.82846,
+        "nextMeters": 27.3,
+        "headingDegrees": 92.3,
+        "turnDegrees": 3.7,
+        "correctedLatitude": 37.65769,
+        "correctedLongitude": 126.82846,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 298,
+        "latitude": 37.65768,
+        "longitude": 126.82877,
+        "nextMeters": 77.8,
+        "headingDegrees": 85.1,
+        "turnDegrees": 7.3,
+        "correctedLatitude": 37.65768,
+        "correctedLongitude": 126.82877,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 299,
+        "latitude": 37.65774,
+        "longitude": 126.82965,
+        "nextMeters": 7.8,
+        "headingDegrees": 64.6,
+        "turnDegrees": 20.4,
+        "correctedLatitude": 37.65774,
+        "correctedLongitude": 126.82965,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 300,
+        "latitude": 37.65777,
+        "longitude": 126.82973,
+        "nextMeters": 7,
+        "headingDegrees": 118.4,
+        "turnDegrees": 53.8,
+        "correctedLatitude": 37.65774,
+        "correctedLongitude": 126.82973,
+        "movedMeters": 3.34
+      },
+      {
+        "pass": "outbound",
+        "index": 301,
+        "latitude": 37.65774,
+        "longitude": 126.8298,
+        "nextMeters": 15.1,
+        "headingDegrees": 98.5,
+        "turnDegrees": 20,
+        "correctedLatitude": 37.65774,
+        "correctedLongitude": 126.8298,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 302,
+        "latitude": 37.65772,
+        "longitude": 126.82997,
+        "nextMeters": 13.1,
+        "headingDegrees": 109.9,
+        "turnDegrees": 11.4,
+        "correctedLatitude": 37.65772,
+        "correctedLongitude": 126.82997,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 303,
+        "latitude": 37.65768,
+        "longitude": 126.83011,
+        "nextMeters": 16.1,
+        "headingDegrees": 118.9,
+        "turnDegrees": 9.1,
+        "correctedLatitude": 37.65768,
+        "correctedLongitude": 126.83011,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 304,
+        "latitude": 37.65761,
+        "longitude": 126.83027,
+        "nextMeters": 25.6,
+        "headingDegrees": 127.6,
+        "turnDegrees": 8.6,
+        "correctedLatitude": 37.65761,
+        "correctedLongitude": 126.83027,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 305,
+        "latitude": 37.65747,
+        "longitude": 126.8305,
+        "nextMeters": 84.3,
+        "headingDegrees": 130.3,
+        "turnDegrees": 2.7,
+        "correctedLatitude": 37.65747,
+        "correctedLongitude": 126.8305,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 306,
+        "latitude": 37.65698,
+        "longitude": 126.83123,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 1.2,
+        "correctedLatitude": 37.65698,
+        "correctedLongitude": 126.83123,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 664,
+        "latitude": 37.65696,
+        "longitude": 126.83137,
+        "nextMeters": 94.7,
+        "headingDegrees": 310.3,
+        "turnDegrees": 8,
+        "correctedLatitude": 37.65696,
+        "correctedLongitude": 126.83137,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 665,
+        "latitude": 37.65751,
+        "longitude": 126.83055,
+        "nextMeters": 26.3,
+        "headingDegrees": 306.4,
+        "turnDegrees": 3.9,
+        "correctedLatitude": 37.65751,
+        "correctedLongitude": 126.83055,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 666,
+        "latitude": 37.65765,
+        "longitude": 126.83031,
+        "nextMeters": 17.4,
+        "headingDegrees": 300.7,
+        "turnDegrees": 5.7,
+        "correctedLatitude": 37.65765,
+        "correctedLongitude": 126.83031,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 667,
+        "latitude": 37.65773,
+        "longitude": 126.83014,
+        "nextMeters": 13.9,
+        "headingDegrees": 288.6,
+        "turnDegrees": 12.1,
+        "correctedLatitude": 37.65773,
+        "correctedLongitude": 126.83014,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 668,
+        "latitude": 37.65777,
+        "longitude": 126.82999,
+        "nextMeters": 16,
+        "headingDegrees": 278,
+        "turnDegrees": 10.6,
+        "correctedLatitude": 37.65777,
+        "correctedLongitude": 126.82999,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 669,
+        "latitude": 37.65779,
+        "longitude": 126.82981,
+        "nextMeters": 7.4,
+        "headingDegrees": 252.5,
+        "turnDegrees": 25.5,
+        "correctedLatitude": 37.65779,
+        "correctedLongitude": 126.82981,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 670,
+        "latitude": 37.65777,
+        "longitude": 126.82973,
+        "nextMeters": 8.2,
+        "headingDegrees": 285.7,
+        "turnDegrees": 33.2,
+        "correctedLatitude": 37.65779,
+        "correctedLongitude": 126.82973,
+        "movedMeters": 2.23
+      },
+      {
+        "pass": "return",
+        "index": 671,
+        "latitude": 37.65779,
+        "longitude": 126.82964,
+        "nextMeters": 77.7,
+        "headingDegrees": 265.9,
+        "turnDegrees": 19.8,
+        "correctedLatitude": 37.65779,
+        "correctedLongitude": 126.82964,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 672,
+        "latitude": 37.65774,
+        "longitude": 126.82876,
+        "nextMeters": 27.3,
+        "headingDegrees": 272.3,
+        "turnDegrees": 6.4,
+        "correctedLatitude": 37.65774,
+        "correctedLongitude": 126.82876,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 673,
+        "latitude": 37.65775,
+        "longitude": 126.82845,
+        "nextMeters": 16.9,
+        "headingDegrees": 277.6,
+        "turnDegrees": 5.2,
+        "correctedLatitude": 37.65775,
+        "correctedLongitude": 126.82845,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 674,
+        "latitude": 37.65777,
+        "longitude": 126.82826,
+        "nextMeters": 67.9,
+        "headingDegrees": 286.2,
+        "turnDegrees": 8.6,
+        "correctedLatitude": 37.65777,
+        "correctedLongitude": 126.82826,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 675,
+        "latitude": 37.65794,
+        "longitude": 126.82752,
+        "nextMeters": 10.8,
+        "headingDegrees": 258.1,
+        "turnDegrees": 28.1,
+        "correctedLatitude": 37.65794,
+        "correctedLongitude": 126.82752,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 676,
+        "latitude": 37.65792,
+        "longitude": 126.8274,
+        "nextMeters": 10.1,
+        "headingDegrees": 355,
+        "turnDegrees": 96.9,
+        "correctedLatitude": 37.65792,
+        "correctedLongitude": 126.8274,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 677,
+        "latitude": 37.65801,
+        "longitude": 126.82739,
+        "nextMeters": 15.7,
+        "headingDegrees": 336.9,
+        "turnDegrees": 18,
+        "correctedLatitude": 37.65801,
+        "correctedLongitude": 126.82739,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 678,
+        "latitude": 37.65814,
+        "longitude": 126.82732,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 0.7,
+        "correctedLatitude": 37.65814,
+        "correctedLongitude": 126.82732,
+        "movedMeters": 0
+      }
+    ]
+  },
+  "thirdSmall": {
+    "region": "thirdSmall",
+    "title": "Image 3: western small circle, Won-dang market",
+    "source": "saved sanitized GBIS 11 snapshot, normalized zero-based point indexes",
+    "passes": [
+      [
+        312,
+        329
+      ],
+      [
+        643,
+        660
+      ]
+    ],
+    "stops": [
+      {
+        "sequence": 34,
+        "name": "삼혜그린뷰아파트",
+        "latitude": 37.65595,
+        "longitude": 126.8340667,
+        "nearestIndexInPass": 315,
+        "distanceToNearestMeters": 5.9
+      },
+      {
+        "sequence": 35,
+        "name": "리스쇼핑.원당시장",
+        "latitude": 37.65585,
+        "longitude": 126.83685,
+        "nearestIndexInPass": 325,
+        "distanceToNearestMeters": 6.6
+      },
+      {
+        "sequence": 70,
+        "name": "삼혜그린뷰아파트",
+        "latitude": 37.6561,
+        "longitude": 126.8338333,
+        "nearestIndexInPass": 656,
+        "distanceToNearestMeters": 2.6
+      }
+    ],
+    "sharedCoordinates": [
+      {
+        "coordinate": "37.65642,126.83264",
+        "indices": [
+          311,
+          659
+        ]
+      },
+      {
+        "coordinate": "37.6558,126.83531",
+        "indices": [
+          319,
+          651
+        ]
+      },
+      {
+        "coordinate": "37.65599,126.83734",
+        "indices": [
+          327,
+          644
+        ]
+      }
+    ],
+    "intersections": [
+      {
+        "segments": [
+          318,
+          650
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.6558,
+        "longitude": 126.83531
+      },
+      {
+        "segments": [
+          318,
+          651
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.6558,
+        "longitude": 126.83531
+      },
+      {
+        "segments": [
+          319,
+          650
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.6558,
+        "longitude": 126.83531
+      },
+      {
+        "segments": [
+          319,
+          651
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.6558,
+        "longitude": 126.83531
+      },
+      {
+        "segments": [
+          326,
+          643
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      },
+      {
+        "segments": [
+          326,
+          644
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      },
+      {
+        "segments": [
+          327,
+          643
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      },
+      {
+        "segments": [
+          327,
+          644
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      }
+    ],
+    "correctedIntersections": [
+      {
+        "segments": [
+          326,
+          643
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      },
+      {
+        "segments": [
+          326,
+          644
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      },
+      {
+        "segments": [
+          327,
+          643
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      },
+      {
+        "segments": [
+          327,
+          644
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65599,
+        "longitude": 126.83734
+      }
+    ],
+    "rows": [
+      {
+        "pass": "outbound",
+        "index": 312,
+        "latitude": 37.65636,
+        "longitude": 126.83272,
+        "nextMeters": 35.3,
+        "headingDegrees": 108.4,
+        "turnDegrees": 25.1,
+        "correctedLatitude": 37.65636,
+        "correctedLongitude": 126.83272,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 313,
+        "latitude": 37.65626,
+        "longitude": 126.8331,
+        "nextMeters": 76.6,
+        "headingDegrees": 109.5,
+        "turnDegrees": 1.1,
+        "correctedLatitude": 37.65626,
+        "correctedLongitude": 126.8331,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 314,
+        "latitude": 37.65603,
+        "longitude": 126.83392,
+        "nextMeters": 17.3,
+        "headingDegrees": 104.9,
+        "turnDegrees": 4.6,
+        "correctedLatitude": 37.65603,
+        "correctedLongitude": 126.83392,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 315,
+        "latitude": 37.65599,
+        "longitude": 126.83411,
+        "nextMeters": 51.7,
+        "headingDegrees": 107.5,
+        "turnDegrees": 2.6,
+        "correctedLatitude": 37.65599,
+        "correctedLongitude": 126.83411,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 316,
+        "latitude": 37.65585,
+        "longitude": 126.83467,
+        "nextMeters": 33.9,
+        "headingDegrees": 99.4,
+        "turnDegrees": 8.1,
+        "correctedLatitude": 37.65585,
+        "correctedLongitude": 126.83467,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 317,
+        "latitude": 37.6558,
+        "longitude": 126.83505,
+        "nextMeters": 15.1,
+        "headingDegrees": 98.5,
+        "turnDegrees": 1,
+        "correctedLatitude": 37.6558,
+        "correctedLongitude": 126.83505,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 318,
+        "latitude": 37.65578,
+        "longitude": 126.83522,
+        "nextMeters": 8.2,
+        "headingDegrees": 74.3,
+        "turnDegrees": 24.1,
+        "correctedLatitude": 37.65578,
+        "correctedLongitude": 126.83522,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 319,
+        "latitude": 37.6558,
+        "longitude": 126.83531,
+        "nextMeters": 9.1,
+        "headingDegrees": 119.3,
+        "turnDegrees": 45,
+        "correctedLatitude": 37.65577058040352,
+        "correctedLongitude": 126.83530477636832,
+        "movedMeters": 3.31
+      },
+      {
+        "pass": "outbound",
+        "index": 320,
+        "latitude": 37.65576,
+        "longitude": 126.8354,
+        "nextMeters": 20.5,
+        "headingDegrees": 99.4,
+        "turnDegrees": 20,
+        "correctedLatitude": 37.65576,
+        "correctedLongitude": 126.8354,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 321,
+        "latitude": 37.65573,
+        "longitude": 126.83563,
+        "nextMeters": 26.4,
+        "headingDegrees": 90,
+        "turnDegrees": 9.4,
+        "correctedLatitude": 37.65573,
+        "correctedLongitude": 126.83563,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 322,
+        "latitude": 37.65573,
+        "longitude": 126.83593,
+        "nextMeters": 21.4,
+        "headingDegrees": 81,
+        "turnDegrees": 9,
+        "correctedLatitude": 37.65573,
+        "correctedLongitude": 126.83593,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 323,
+        "latitude": 37.65576,
+        "longitude": 126.83617,
+        "nextMeters": 30.1,
+        "headingDegrees": 75,
+        "turnDegrees": 6,
+        "correctedLatitude": 37.65576,
+        "correctedLongitude": 126.83617,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 324,
+        "latitude": 37.65583,
+        "longitude": 126.8365,
+        "nextMeters": 35.2,
+        "headingDegrees": 77.2,
+        "turnDegrees": 2.2,
+        "correctedLatitude": 37.65583,
+        "correctedLongitude": 126.8365,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 325,
+        "latitude": 37.6559,
+        "longitude": 126.83689,
+        "nextMeters": 33.3,
+        "headingDegrees": 78.4,
+        "turnDegrees": 1.2,
+        "correctedLatitude": 37.6559,
+        "correctedLongitude": 126.83689,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 326,
+        "latitude": 37.65596,
+        "longitude": 126.83726,
+        "nextMeters": 7.8,
+        "headingDegrees": 64.6,
+        "turnDegrees": 13.8,
+        "correctedLatitude": 37.65596,
+        "correctedLongitude": 126.83726,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 327,
+        "latitude": 37.65599,
+        "longitude": 126.83734,
+        "nextMeters": 7.1,
+        "headingDegrees": 141.7,
+        "turnDegrees": 77,
+        "correctedLatitude": 37.65599,
+        "correctedLongitude": 126.83734,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 328,
+        "latitude": 37.65594,
+        "longitude": 126.83739,
+        "nextMeters": 70.5,
+        "headingDegrees": 125.7,
+        "turnDegrees": 15.9,
+        "correctedLatitude": 37.65594,
+        "correctedLongitude": 126.83739,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 329,
+        "latitude": 37.65557,
+        "longitude": 126.83804,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 5.2,
+        "correctedLatitude": 37.65557,
+        "correctedLongitude": 126.83804,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 643,
+        "latitude": 37.65598,
+        "longitude": 126.83742,
+        "nextMeters": 7.1,
+        "headingDegrees": 279,
+        "turnDegrees": 27.1,
+        "correctedLatitude": 37.65598,
+        "correctedLongitude": 126.83742,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 644,
+        "latitude": 37.65599,
+        "longitude": 126.83734,
+        "nextMeters": 8.2,
+        "headingDegrees": 285.7,
+        "turnDegrees": 6.7,
+        "correctedLatitude": 37.65599,
+        "correctedLongitude": 126.83734,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 645,
+        "latitude": 37.65601,
+        "longitude": 126.83725,
+        "nextMeters": 69.3,
+        "headingDegrees": 258,
+        "turnDegrees": 27.7,
+        "correctedLatitude": 37.65601,
+        "correctedLongitude": 126.83725,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 646,
+        "latitude": 37.65588,
+        "longitude": 126.83648,
+        "nextMeters": 29.2,
+        "headingDegrees": 254.5,
+        "turnDegrees": 3.4,
+        "correctedLatitude": 37.65588,
+        "correctedLongitude": 126.83648,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 647,
+        "latitude": 37.65581,
+        "longitude": 126.83616,
+        "nextMeters": 21.6,
+        "headingDegrees": 258.1,
+        "turnDegrees": 3.6,
+        "correctedLatitude": 37.65581,
+        "correctedLongitude": 126.83616,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 648,
+        "latitude": 37.65577,
+        "longitude": 126.83592,
+        "nextMeters": 25.6,
+        "headingDegrees": 272.5,
+        "turnDegrees": 14.4,
+        "correctedLatitude": 37.65577,
+        "correctedLongitude": 126.83592,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 649,
+        "latitude": 37.65578,
+        "longitude": 126.83563,
+        "nextMeters": 19.7,
+        "headingDegrees": 279.8,
+        "turnDegrees": 7.3,
+        "correctedLatitude": 37.65578,
+        "correctedLongitude": 126.83563,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 650,
+        "latitude": 37.65581,
+        "longitude": 126.83541,
+        "nextMeters": 8.9,
+        "headingDegrees": 262.8,
+        "turnDegrees": 17,
+        "correctedLatitude": 37.65581,
+        "correctedLongitude": 126.83541,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 651,
+        "latitude": 37.6558,
+        "longitude": 126.83531,
+        "nextMeters": 7,
+        "headingDegrees": 298.4,
+        "turnDegrees": 35.7,
+        "correctedLatitude": 37.65582129373682,
+        "correctedLongitude": 126.835314003237,
+        "movedMeters": 2.4
+      },
+      {
+        "pass": "return",
+        "index": 652,
+        "latitude": 37.65583,
+        "longitude": 126.83524,
+        "nextMeters": 14.3,
+        "headingDegrees": 279,
+        "turnDegrees": 19.5,
+        "correctedLatitude": 37.65583,
+        "correctedLongitude": 126.83524,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 653,
+        "latitude": 37.65585,
+        "longitude": 126.83508,
+        "nextMeters": 33.9,
+        "headingDegrees": 279.4,
+        "turnDegrees": 0.5,
+        "correctedLatitude": 37.65585,
+        "correctedLongitude": 126.83508,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 654,
+        "latitude": 37.6559,
+        "longitude": 126.8347,
+        "nextMeters": 69,
+        "headingDegrees": 286.9,
+        "turnDegrees": 7.4,
+        "correctedLatitude": 37.6559,
+        "correctedLongitude": 126.8347,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 655,
+        "latitude": 37.65608,
+        "longitude": 126.83395,
+        "nextMeters": 8.6,
+        "headingDegrees": 292.8,
+        "turnDegrees": 6,
+        "correctedLatitude": 37.65608,
+        "correctedLongitude": 126.83395,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 656,
+        "latitude": 37.65611,
+        "longitude": 126.83386,
+        "nextMeters": 69.7,
+        "headingDegrees": 288.6,
+        "turnDegrees": 4.2,
+        "correctedLatitude": 37.65611,
+        "correctedLongitude": 126.83386,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 657,
+        "latitude": 37.65631,
+        "longitude": 126.83311,
+        "nextMeters": 33.2,
+        "headingDegrees": 291.7,
+        "turnDegrees": 3,
+        "correctedLatitude": 37.65631,
+        "correctedLongitude": 126.83311,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 658,
+        "latitude": 37.65642,
+        "longitude": 126.83276,
+        "nextMeters": 10.6,
+        "headingDegrees": 270,
+        "turnDegrees": 21.7,
+        "correctedLatitude": 37.65642,
+        "correctedLongitude": 126.83276,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 659,
+        "latitude": 37.65642,
+        "longitude": 126.83264,
+        "nextMeters": 8.3,
+        "headingDegrees": 312.1,
+        "turnDegrees": 42.1,
+        "correctedLatitude": 37.65644843246263,
+        "correctedLongitude": 126.832651956642,
+        "movedMeters": 3.34
+      },
+      {
+        "pass": "return",
+        "index": 660,
+        "latitude": 37.65647,
+        "longitude": 126.83257,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 23.1,
+        "correctedLatitude": 37.65647,
+        "correctedLongitude": 126.83257,
+        "movedMeters": 0
+      }
+    ]
+  },
+  "thirdMiddle": {
+    "region": "thirdMiddle",
+    "title": "Image 3: middle small circle, south-east approach",
+    "source": "saved sanitized GBIS 11 snapshot, normalized zero-based point indexes",
+    "passes": [
+      [
+        329,
+        341
+      ],
+      [
+        629,
+        644
+      ]
+    ],
+    "stops": [
+      {
+        "sequence": 36,
+        "name": "성사1동행정복지센터",
+        "latitude": 37.6544833,
+        "longitude": 126.8405,
+        "nearestIndexInPass": 338,
+        "distanceToNearestMeters": 8.2
+      },
+      {
+        "sequence": 68,
+        "name": "성사1동행정복지센터",
+        "latitude": 37.6546333,
+        "longitude": 126.8405,
+        "nearestIndexInPass": 632,
+        "distanceToNearestMeters": 0.4
+      },
+      {
+        "sequence": 69,
+        "name": "롯데캐슬.원당시장",
+        "latitude": 37.6558,
+        "longitude": 126.8377333,
+        "nearestIndexInPass": 642,
+        "distanceToNearestMeters": 1.8
+      }
+    ],
+    "sharedCoordinates": [
+      {
+        "coordinate": "37.65599,126.83734",
+        "indices": [
+          327,
+          644
+        ]
+      },
+      {
+        "coordinate": "37.65511,126.83966",
+        "indices": [
+          335,
+          635
+        ]
+      },
+      {
+        "coordinate": "37.65446,126.84074",
+        "indices": [
+          340,
+          630
+        ]
+      }
+    ],
+    "intersections": [
+      {
+        "segments": [
+          334,
+          634
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          334,
+          635
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          335,
+          634
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          335,
+          635
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          339,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          339,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      }
+    ],
+    "correctedIntersections": [
+      {
+        "segments": [
+          334,
+          634
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          334,
+          635
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          335,
+          634
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          335,
+          635
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65511,
+        "longitude": 126.83966
+      },
+      {
+        "segments": [
+          339,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          339,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      }
+    ],
+    "rows": [
+      {
+        "pass": "outbound",
+        "index": 329,
+        "latitude": 37.65557,
+        "longitude": 126.83804,
+        "nextMeters": 15.3,
+        "headingDegrees": 120.5,
+        "turnDegrees": 5.2,
+        "correctedLatitude": 37.65557,
+        "correctedLongitude": 126.83804,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 330,
+        "latitude": 37.6555,
+        "longitude": 126.83819,
+        "nextMeters": 87.4,
+        "headingDegrees": 104.8,
+        "turnDegrees": 15.8,
+        "correctedLatitude": 37.6555,
+        "correctedLongitude": 126.83819,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 331,
+        "latitude": 37.6553,
+        "longitude": 126.83915,
+        "nextMeters": 18,
+        "headingDegrees": 111.8,
+        "turnDegrees": 7,
+        "correctedLatitude": 37.6553,
+        "correctedLongitude": 126.83915,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 332,
+        "latitude": 37.65524,
+        "longitude": 126.83934,
+        "nextMeters": 15.3,
+        "headingDegrees": 120.5,
+        "turnDegrees": 8.8,
+        "correctedLatitude": 37.65524,
+        "correctedLongitude": 126.83934,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 333,
+        "latitude": 37.65517,
+        "longitude": 126.83949,
+        "nextMeters": 10.4,
+        "headingDegrees": 122.3,
+        "turnDegrees": 1.8,
+        "correctedLatitude": 37.65517,
+        "correctedLongitude": 126.83949,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 334,
+        "latitude": 37.65512,
+        "longitude": 126.83959,
+        "nextMeters": 6.3,
+        "headingDegrees": 100.2,
+        "turnDegrees": 22.1,
+        "correctedLatitude": 37.65512,
+        "correctedLongitude": 126.83959,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 335,
+        "latitude": 37.65511,
+        "longitude": 126.83966,
+        "nextMeters": 6.2,
+        "headingDegrees": 154.6,
+        "turnDegrees": 54.4,
+        "correctedLatitude": 37.65511,
+        "correctedLongitude": 126.83966,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 336,
+        "latitude": 37.65506,
+        "longitude": 126.83969,
+        "nextMeters": 17.3,
+        "headingDegrees": 125.4,
+        "turnDegrees": 29.2,
+        "correctedLatitude": 37.65506,
+        "correctedLongitude": 126.83969,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 337,
+        "latitude": 37.65497,
+        "longitude": 126.83985,
+        "nextMeters": 78.7,
+        "headingDegrees": 127.4,
+        "turnDegrees": 2,
+        "correctedLatitude": 37.65497,
+        "correctedLongitude": 126.83985,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 338,
+        "latitude": 37.65454,
+        "longitude": 126.84056,
+        "nextMeters": 11.8,
+        "headingDegrees": 124.6,
+        "turnDegrees": 2.9,
+        "correctedLatitude": 37.65454,
+        "correctedLongitude": 126.84056,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 339,
+        "latitude": 37.65448,
+        "longitude": 126.84067,
+        "nextMeters": 6.6,
+        "headingDegrees": 109.9,
+        "turnDegrees": 14.7,
+        "correctedLatitude": 37.65448,
+        "correctedLongitude": 126.84067,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 340,
+        "latitude": 37.65446,
+        "longitude": 126.84074,
+        "nextMeters": 8,
+        "headingDegrees": 213.4,
+        "turnDegrees": 103.5,
+        "correctedLatitude": 37.65446,
+        "correctedLongitude": 126.84074,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 341,
+        "latitude": 37.6544,
+        "longitude": 126.84069,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 23.9,
+        "correctedLatitude": 37.6544,
+        "correctedLongitude": 126.84069,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 629,
+        "latitude": 37.65438,
+        "longitude": 126.84075,
+        "nextMeters": 8.9,
+        "headingDegrees": 354.4,
+        "turnDegrees": 15.6,
+        "correctedLatitude": 37.65438,
+        "correctedLongitude": 126.84075,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 630,
+        "latitude": 37.65446,
+        "longitude": 126.84074,
+        "nextMeters": 6.6,
+        "headingDegrees": 327.7,
+        "turnDegrees": 26.7,
+        "correctedLatitude": 37.65446,
+        "correctedLongitude": 126.84074,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 631,
+        "latitude": 37.65451,
+        "longitude": 126.8407,
+        "nextMeters": 22.1,
+        "headingDegrees": 307.2,
+        "turnDegrees": 20.5,
+        "correctedLatitude": 37.65451,
+        "correctedLongitude": 126.8407,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 632,
+        "latitude": 37.65463,
+        "longitude": 126.8405,
+        "nextMeters": 69.1,
+        "headingDegrees": 307.8,
+        "turnDegrees": 0.6,
+        "correctedLatitude": 37.65463,
+        "correctedLongitude": 126.8405,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 633,
+        "latitude": 37.65501,
+        "longitude": 126.83988,
+        "nextMeters": 15.9,
+        "headingDegrees": 304,
+        "turnDegrees": 3.8,
+        "correctedLatitude": 37.65501,
+        "correctedLongitude": 126.83988,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 634,
+        "latitude": 37.65509,
+        "longitude": 126.83973,
+        "nextMeters": 6.6,
+        "headingDegrees": 289.9,
+        "turnDegrees": 14.1,
+        "correctedLatitude": 37.65509,
+        "correctedLongitude": 126.83973,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 635,
+        "latitude": 37.65511,
+        "longitude": 126.83966,
+        "nextMeters": 7.1,
+        "headingDegrees": 321.7,
+        "turnDegrees": 31.8,
+        "correctedLatitude": 37.65511,
+        "correctedLongitude": 126.83966,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 636,
+        "latitude": 37.65516,
+        "longitude": 126.83961,
+        "nextMeters": 9.7,
+        "headingDegrees": 305.1,
+        "turnDegrees": 16.6,
+        "correctedLatitude": 37.65516,
+        "correctedLongitude": 126.83961,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 637,
+        "latitude": 37.65521,
+        "longitude": 126.83952,
+        "nextMeters": 16.1,
+        "headingDegrees": 298.9,
+        "turnDegrees": 6.1,
+        "correctedLatitude": 37.65521,
+        "correctedLongitude": 126.83952,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 638,
+        "latitude": 37.65528,
+        "longitude": 126.83936,
+        "nextMeters": 18,
+        "headingDegrees": 291.8,
+        "turnDegrees": 7.2,
+        "correctedLatitude": 37.65528,
+        "correctedLongitude": 126.83936,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 639,
+        "latitude": 37.65534,
+        "longitude": 126.83917,
+        "nextMeters": 88.3,
+        "headingDegrees": 284.6,
+        "turnDegrees": 7.2,
+        "correctedLatitude": 37.65534,
+        "correctedLongitude": 126.83917,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 640,
+        "latitude": 37.65554,
+        "longitude": 126.8382,
+        "nextMeters": 13.8,
+        "headingDegrees": 304.2,
+        "turnDegrees": 19.6,
+        "correctedLatitude": 37.65554,
+        "correctedLongitude": 126.8382,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 641,
+        "latitude": 37.65561,
+        "longitude": 126.83807,
+        "nextMeters": 34.6,
+        "headingDegrees": 305.4,
+        "turnDegrees": 1.2,
+        "correctedLatitude": 37.65561,
+        "correctedLongitude": 126.83807,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 642,
+        "latitude": 37.65579,
+        "longitude": 126.83775,
+        "nextMeters": 35.9,
+        "headingDegrees": 306,
+        "turnDegrees": 0.6,
+        "correctedLatitude": 37.65579,
+        "correctedLongitude": 126.83775,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 643,
+        "latitude": 37.65598,
+        "longitude": 126.83742,
+        "nextMeters": 7.1,
+        "headingDegrees": 279,
+        "turnDegrees": 27.1,
+        "correctedLatitude": 37.65598,
+        "correctedLongitude": 126.83742,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 644,
+        "latitude": 37.65599,
+        "longitude": 126.83734,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 6.7,
+        "correctedLatitude": 37.65599,
+        "correctedLongitude": 126.83734,
+        "movedMeters": 0
+      }
+    ]
+  },
+  "thirdLarge": {
+    "region": "thirdLarge",
+    "title": "Image 3: large circle, city office spur",
+    "source": "saved sanitized GBIS 11 snapshot, normalized zero-based point indexes",
+    "passes": [
+      [
+        336,
+        349
+      ],
+      [
+        615,
+        638
+      ]
+    ],
+    "stops": [
+      {
+        "sequence": 36,
+        "name": "성사1동행정복지센터",
+        "latitude": 37.6544833,
+        "longitude": 126.8405,
+        "nearestIndexInPass": 338,
+        "distanceToNearestMeters": 8.2
+      },
+      {
+        "sequence": 37,
+        "name": "어울림마을입구",
+        "latitude": 37.6545167,
+        "longitude": 126.8373667,
+        "nearestIndexInPass": 349,
+        "distanceToNearestMeters": 11
+      },
+      {
+        "sequence": 67,
+        "name": "어울림마을입구",
+        "latitude": 37.65415,
+        "longitude": 126.83725,
+        "nearestIndexInPass": 615,
+        "distanceToNearestMeters": 22.9
+      },
+      {
+        "sequence": 68,
+        "name": "성사1동행정복지센터",
+        "latitude": 37.6546333,
+        "longitude": 126.8405,
+        "nearestIndexInPass": 632,
+        "distanceToNearestMeters": 0.4
+      }
+    ],
+    "sharedCoordinates": [
+      {
+        "coordinate": "37.65511,126.83966",
+        "indices": [
+          335,
+          635
+        ]
+      },
+      {
+        "coordinate": "37.65446,126.84074",
+        "indices": [
+          340,
+          630
+        ]
+      },
+      {
+        "coordinate": "37.65363,126.84048",
+        "indices": [
+          344,
+          620,
+          626
+        ]
+      },
+      {
+        "coordinate": "37.65427,126.83777",
+        "indices": [
+          347,
+          617
+        ]
+      }
+    ],
+    "intersections": [
+      {
+        "segments": [
+          339,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          339,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          343,
+          619
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          343,
+          620
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          343,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          343,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          619
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          620
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          346,
+          616
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65427,
+        "longitude": 126.83777
+      },
+      {
+        "segments": [
+          346,
+          617
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65427,
+        "longitude": 126.83777
+      },
+      {
+        "segments": [
+          347,
+          616
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65427,
+        "longitude": 126.83777
+      },
+      {
+        "segments": [
+          347,
+          617
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65427,
+        "longitude": 126.83777
+      },
+      {
+        "segments": [
+          619,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          619,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          620,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          620,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      }
+    ],
+    "correctedIntersections": [
+      {
+        "segments": [
+          339,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          339,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          629
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          340,
+          630
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65446,
+        "longitude": 126.84074
+      },
+      {
+        "segments": [
+          343,
+          619
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          343,
+          620
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          343,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          343,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          619
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          620
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          344,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          619,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          619,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          620,
+          625
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      },
+      {
+        "segments": [
+          620,
+          626
+        ],
+        "kind": "endpoint-touch",
+        "latitude": 37.65363,
+        "longitude": 126.84048
+      }
+    ],
+    "rows": [
+      {
+        "pass": "outbound",
+        "index": 336,
+        "latitude": 37.65506,
+        "longitude": 126.83969,
+        "nextMeters": 17.3,
+        "headingDegrees": 125.4,
+        "turnDegrees": 29.2,
+        "correctedLatitude": 37.65506,
+        "correctedLongitude": 126.83969,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 337,
+        "latitude": 37.65497,
+        "longitude": 126.83985,
+        "nextMeters": 78.7,
+        "headingDegrees": 127.4,
+        "turnDegrees": 2,
+        "correctedLatitude": 37.65497,
+        "correctedLongitude": 126.83985,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 338,
+        "latitude": 37.65454,
+        "longitude": 126.84056,
+        "nextMeters": 11.8,
+        "headingDegrees": 124.6,
+        "turnDegrees": 2.9,
+        "correctedLatitude": 37.65454,
+        "correctedLongitude": 126.84056,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 339,
+        "latitude": 37.65448,
+        "longitude": 126.84067,
+        "nextMeters": 6.6,
+        "headingDegrees": 109.9,
+        "turnDegrees": 14.7,
+        "correctedLatitude": 37.65448,
+        "correctedLongitude": 126.84067,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 340,
+        "latitude": 37.65446,
+        "longitude": 126.84074,
+        "nextMeters": 8,
+        "headingDegrees": 213.4,
+        "turnDegrees": 103.5,
+        "correctedLatitude": 37.65446,
+        "correctedLongitude": 126.84074,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 341,
+        "latitude": 37.6544,
+        "longitude": 126.84069,
+        "nextMeters": 21.4,
+        "headingDegrees": 189.5,
+        "turnDegrees": 23.9,
+        "correctedLatitude": 37.6544,
+        "correctedLongitude": 126.84069,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 342,
+        "latitude": 37.65421,
+        "longitude": 126.84065,
+        "nextMeters": 57.6,
+        "headingDegrees": 195.1,
+        "turnDegrees": 5.6,
+        "correctedLatitude": 37.65421,
+        "correctedLongitude": 126.84065,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 343,
+        "latitude": 37.65371,
+        "longitude": 126.84048,
+        "nextMeters": 8.9,
+        "headingDegrees": 180,
+        "turnDegrees": 15.1,
+        "correctedLatitude": 37.65371,
+        "correctedLongitude": 126.84048,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 344,
+        "latitude": 37.65363,
+        "longitude": 126.84048,
+        "nextMeters": 18,
+        "headingDegrees": 303.8,
+        "turnDegrees": 123.8,
+        "correctedLatitude": 37.65363,
+        "correctedLongitude": 126.84048,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 345,
+        "latitude": 37.65372,
+        "longitude": 126.84031,
+        "nextMeters": 216.7,
+        "headingDegrees": 286.4,
+        "turnDegrees": 17.4,
+        "correctedLatitude": 37.65372,
+        "correctedLongitude": 126.84031,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 346,
+        "latitude": 37.65427,
+        "longitude": 126.83795,
+        "nextMeters": 15.9,
+        "headingDegrees": 270,
+        "turnDegrees": 16.4,
+        "correctedLatitude": 37.65427,
+        "correctedLongitude": 126.83795,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 347,
+        "latitude": 37.65427,
+        "longitude": 126.83777,
+        "nextMeters": 15.2,
+        "headingDegrees": 305.8,
+        "turnDegrees": 35.8,
+        "correctedLatitude": 37.65431091372676,
+        "correctedLongitude": 126.83778634509295,
+        "movedMeters": 4.78
+      },
+      {
+        "pass": "outbound",
+        "index": 348,
+        "latitude": 37.65435,
+        "longitude": 126.83763,
+        "nextMeters": 26.7,
+        "headingDegrees": 287,
+        "turnDegrees": 18.9,
+        "correctedLatitude": 37.65435,
+        "correctedLongitude": 126.83763,
+        "movedMeters": 0
+      },
+      {
+        "pass": "outbound",
+        "index": 349,
+        "latitude": 37.65442,
+        "longitude": 126.83734,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 0.6,
+        "correctedLatitude": 37.65442,
+        "correctedLongitude": 126.83734,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 615,
+        "latitude": 37.65434,
+        "longitude": 126.83735,
+        "nextMeters": 22.2,
+        "headingDegrees": 107.5,
+        "turnDegrees": 1,
+        "correctedLatitude": 37.65434,
+        "correctedLongitude": 126.83735,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 616,
+        "latitude": 37.65428,
+        "longitude": 126.83759,
+        "nextMeters": 15.9,
+        "headingDegrees": 94,
+        "turnDegrees": 13.5,
+        "correctedLatitude": 37.65428,
+        "correctedLongitude": 126.83759,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 617,
+        "latitude": 37.65427,
+        "longitude": 126.83777,
+        "nextMeters": 16.1,
+        "headingDegrees": 118.9,
+        "turnDegrees": 24.9,
+        "correctedLatitude": 37.654240276705664,
+        "correctedLongitude": 126.83775882400093,
+        "movedMeters": 3.45
+      },
+      {
+        "pass": "return",
+        "index": 618,
+        "latitude": 37.6542,
+        "longitude": 126.83793,
+        "nextMeters": 216.1,
+        "headingDegrees": 106.8,
+        "turnDegrees": 12.2,
+        "correctedLatitude": 37.6542,
+        "correctedLongitude": 126.83793,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 619,
+        "latitude": 37.65364,
+        "longitude": 126.84028,
+        "nextMeters": 17.6,
+        "headingDegrees": 93.6,
+        "turnDegrees": 13.1,
+        "correctedLatitude": 37.65364,
+        "correctedLongitude": 126.84028,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 620,
+        "latitude": 37.65363,
+        "longitude": 126.84048,
+        "nextMeters": 14.6,
+        "headingDegrees": 122.3,
+        "turnDegrees": 28.7,
+        "correctedLatitude": 37.65363,
+        "correctedLongitude": 126.84048,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 621,
+        "latitude": 37.65356,
+        "longitude": 126.84062,
+        "nextMeters": 159.9,
+        "headingDegrees": 106.6,
+        "turnDegrees": 15.7,
+        "correctedLatitude": 37.65356,
+        "correctedLongitude": 126.84062,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 622,
+        "latitude": 37.65315,
+        "longitude": 126.84236,
+        "nextMeters": 17.6,
+        "headingDegrees": 90,
+        "turnDegrees": 16.6,
+        "correctedLatitude": 37.65315,
+        "correctedLongitude": 126.84236,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 623,
+        "latitude": 37.65315,
+        "longitude": 126.84256,
+        "nextMeters": 16.7,
+        "headingDegrees": 302.3,
+        "turnDegrees": 147.7,
+        "correctedLatitude": 37.65315,
+        "correctedLongitude": 126.84256,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 624,
+        "latitude": 37.65323,
+        "longitude": 126.8424,
+        "nextMeters": 159.6,
+        "headingDegrees": 286.2,
+        "turnDegrees": 16.1,
+        "correctedLatitude": 37.65323,
+        "correctedLongitude": 126.8424,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 625,
+        "latitude": 37.65363,
+        "longitude": 126.84066,
+        "nextMeters": 15.9,
+        "headingDegrees": 270,
+        "turnDegrees": 16.2,
+        "correctedLatitude": 37.65363,
+        "correctedLongitude": 126.84066,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 626,
+        "latitude": 37.65363,
+        "longitude": 126.84048,
+        "nextMeters": 9.9,
+        "headingDegrees": 38.3,
+        "turnDegrees": 128.3,
+        "correctedLatitude": 37.65363,
+        "correctedLongitude": 126.84048,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 627,
+        "latitude": 37.6537,
+        "longitude": 126.84055,
+        "nextMeters": 57.4,
+        "headingDegrees": 14.2,
+        "turnDegrees": 24.1,
+        "correctedLatitude": 37.6537,
+        "correctedLongitude": 126.84055,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 628,
+        "latitude": 37.6542,
+        "longitude": 126.84071,
+        "nextMeters": 20.3,
+        "headingDegrees": 10,
+        "turnDegrees": 4.2,
+        "correctedLatitude": 37.6542,
+        "correctedLongitude": 126.84071,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 629,
+        "latitude": 37.65438,
+        "longitude": 126.84075,
+        "nextMeters": 8.9,
+        "headingDegrees": 354.4,
+        "turnDegrees": 15.6,
+        "correctedLatitude": 37.65438,
+        "correctedLongitude": 126.84075,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 630,
+        "latitude": 37.65446,
+        "longitude": 126.84074,
+        "nextMeters": 6.6,
+        "headingDegrees": 327.7,
+        "turnDegrees": 26.7,
+        "correctedLatitude": 37.65446,
+        "correctedLongitude": 126.84074,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 631,
+        "latitude": 37.65451,
+        "longitude": 126.8407,
+        "nextMeters": 22.1,
+        "headingDegrees": 307.2,
+        "turnDegrees": 20.5,
+        "correctedLatitude": 37.65451,
+        "correctedLongitude": 126.8407,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 632,
+        "latitude": 37.65463,
+        "longitude": 126.8405,
+        "nextMeters": 69.1,
+        "headingDegrees": 307.8,
+        "turnDegrees": 0.6,
+        "correctedLatitude": 37.65463,
+        "correctedLongitude": 126.8405,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 633,
+        "latitude": 37.65501,
+        "longitude": 126.83988,
+        "nextMeters": 15.9,
+        "headingDegrees": 304,
+        "turnDegrees": 3.8,
+        "correctedLatitude": 37.65501,
+        "correctedLongitude": 126.83988,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 634,
+        "latitude": 37.65509,
+        "longitude": 126.83973,
+        "nextMeters": 6.6,
+        "headingDegrees": 289.9,
+        "turnDegrees": 14.1,
+        "correctedLatitude": 37.65509,
+        "correctedLongitude": 126.83973,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 635,
+        "latitude": 37.65511,
+        "longitude": 126.83966,
+        "nextMeters": 7.1,
+        "headingDegrees": 321.7,
+        "turnDegrees": 31.8,
+        "correctedLatitude": 37.65511,
+        "correctedLongitude": 126.83966,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 636,
+        "latitude": 37.65516,
+        "longitude": 126.83961,
+        "nextMeters": 9.7,
+        "headingDegrees": 305.1,
+        "turnDegrees": 16.6,
+        "correctedLatitude": 37.65516,
+        "correctedLongitude": 126.83961,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 637,
+        "latitude": 37.65521,
+        "longitude": 126.83952,
+        "nextMeters": 16.1,
+        "headingDegrees": 298.9,
+        "turnDegrees": 6.1,
+        "correctedLatitude": 37.65521,
+        "correctedLongitude": 126.83952,
+        "movedMeters": 0
+      },
+      {
+        "pass": "return",
+        "index": 638,
+        "latitude": 37.65528,
+        "longitude": 126.83936,
+        "nextMeters": null,
+        "headingDegrees": null,
+        "turnDegrees": 7.2,
+        "correctedLatitude": 37.65528,
+        "correctedLongitude": 126.83936,
+        "movedMeters": 0
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getVehiclePositions, type VehiclePositionsResult } from './api'
 import { vehicleTransitions, type VehicleTransition } from './vehicleProgress'
-import { VehiclePollingController, type PollingUpdate, type TrackedRoute } from './vehiclePolling'
+import { VehiclePollingController, type PollingTrigger, type PollingUpdate, type TrackedRoute } from './vehiclePolling'
 
 export type { TrackedRoute }
 export interface VehicleSnapshot {
@@ -10,6 +10,8 @@ export interface VehicleSnapshot {
   message: string
   changes: Record<string, VehicleTransition>
 }
+export interface VehicleAction { kind: 'cleared' | 'loading' | 'ready' | 'error'; trigger: PollingTrigger | null;
+  atMs: number; httpStatus: number | null }
 
 function notice(result: ReturnType<VehiclePollingController['refresh']>, selected: number): string {
   if (result.unavailable) return navigator.onLine === false ? '네트워크 연결이 복구되면 차량을 다시 조회합니다.' : '탭을 다시 활성화하면 차량을 조회합니다.'
@@ -24,11 +26,15 @@ export function useVehicleTracking(routes: TrackedRoute[]) {
   const [snapshots, setSnapshots] = useState<Record<string, VehicleSnapshot>>({})
   const [refreshNotice, setRefreshNotice] = useState('')
   const schedulerRef = useRef<VehiclePollingController | null>(null)
+  const actionsRef = useRef<Record<string, VehicleAction[]>>({})
   const selectedCountRef = useRef(0)
   selectedCountRef.current = routes.filter((route) => route.visible).length
 
   if (!schedulerRef.current) {
     schedulerRef.current = new VehiclePollingController(getVehiclePositions, (key: string, event: PollingUpdate) => {
+      const actions = actionsRef.current[key] ?? []
+      actionsRef.current[key] = [...actions.slice(-2), { kind: event?.status ?? 'cleared', trigger: event?.trigger ?? null,
+        atMs: Date.now(), httpStatus: event?.status === 'error' ? event.httpStatus : null }]
       setSnapshots((previous) => {
         if (event === null) {
           if (!(key in previous)) return previous
@@ -39,7 +45,9 @@ export function useVehicleTracking(routes: TrackedRoute[]) {
         const prior = previous[key]
         if (event.status === 'ready') return { ...previous, [key]: { status: 'ready', data: event.data, message: '',
           changes: vehicleTransitions(prior?.data?.vehicles ?? [], event.data.vehicles) } }
-        if (event.status === 'loading') return { ...previous, [key]: { status: 'loading', data: prior?.data ?? null, message: '', changes: {} } }
+        // Keep the last successful snapshot visible while the next request is in flight.
+        if (event.status === 'loading') return { ...previous, [key]: { status: prior?.data ? 'ready' : 'loading',
+          data: prior?.data ?? null, message: '', changes: prior?.changes ?? {} } }
         return { ...previous, [key]: { status: 'error', data: null, message: event.message, changes: {} } }
       })
     })
@@ -66,5 +74,5 @@ export function useVehicleTracking(routes: TrackedRoute[]) {
     setRefreshNotice(notice(result, selectedCountRef.current))
   }, [])
 
-  return { snapshots, refresh, refreshNotice }
+  return { snapshots, actions: actionsRef.current, refresh, refreshNotice }
 }

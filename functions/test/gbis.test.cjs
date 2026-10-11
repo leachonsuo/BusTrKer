@@ -1,5 +1,7 @@
 const test = require('node:test')
 const assert = require('node:assert/strict')
+const { MemoryBudgetStore, setBudgetStoreForTests } = require('../lib/transit/budget.js')
+setBudgetStoreForTests(new MemoryBudgetStore())
 const { parseNearbyStops, parseArrivals, parseRouteSearch, parseRouteDetail, parseRouteShape, parseRouteStops, parseVehiclePositions, nearbyGbis, vehiclesGbisRoute, TransitApiError, resetGbisCooldownForTests } = require('../lib/transit/gbis.js')
 
 test('GBIS 주변 정류장: 공식 msgBody 목록을 변환하고 중복 ID를 제거한다', () => {
